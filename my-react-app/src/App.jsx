@@ -41,7 +41,7 @@ import UseAction from "./components/UseAction";
 import ToggleHook from "./components/ToggleHook"
 import { SubjectData } from "./components/ContextData";
 import College from "./components/College";
-import Router from "./components/Router";
+
 
 
 
@@ -134,7 +134,7 @@ const [subject,setSubject] = useState("English");
     <College/>
    </SubjectData.Provider>
 
-   <Router/>
+
 
    
    
