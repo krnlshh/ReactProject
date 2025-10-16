@@ -23,6 +23,7 @@ function App() {
         <Route path="/user/:id/:name?" element={<UserDetail />} />
         <Route path="/editUser/:id" element={<EditUser />} />
         <Route path="/practice" element={<PracticeComponents />} />
+        <Route path="/practice" element={<PracticeComponents />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 
