@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "name": "johnexxs",
+      "email": "seila@fds.com",
+      "age": "5",
+      "city": "test",
+      "id": 1
+    },
+    {
+      "name": "Krunal",
+      "email": "xxx@test.com",
+      "age": "55",
+      "city": "test",
+      "id": 2
+    },
+    {
+      "name": "case",
+      "email": "seila@fds.com",
+      "age": "50",
+      "city": "test",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 1000,
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Phone",
+      "price": 500,
+      "category": "Electronics"
+    },
+    {
+      "id": 3,
+      "name": "Desk",
+      "price": 200,
+      "category": "Furniture"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "First Post",
+      "content": "This is my first blog post",
+      "author": "Krunal"
+    },
+    {
+      "id": 2,
+      "title": "Second Post",
+      "content": "Learning React is fun!",
+      "author": "John"
+    }
+  ]
+}
