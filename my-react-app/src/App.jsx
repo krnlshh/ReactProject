@@ -11,6 +11,11 @@ import UserList from "./pages/UserList";
 import UserDetail from "./pages/UserDetail";
 import EditUser from "./components/EditUser";
 import PracticeComponents from "./pages/PracticeComponents";
+import QuestionAndAnswer from "./Interview_Example/QuestionAndAnswer";
+import TaskManagement from "./Interview_Example/TaskManagement";
+import InterviewComponents from "./pages/InterviewComponents";
+import ChallengeDetails from "./pages/ChallengeDetails";
+
 
 function App() {
   return (
@@ -23,7 +28,9 @@ function App() {
         <Route path="/user/:id/:name?" element={<UserDetail />} />
         <Route path="/editUser/:id" element={<EditUser />} />
         <Route path="/practice" element={<PracticeComponents />} />
-        <Route path="/practice" element={<PracticeComponents />} />
+        <Route path="/interview" element={<InterviewComponents />} />
+        <Route path="/task-management" element={<TaskManagement />} />
+        <Route path="/challenge-details" element={<ChallengeDetails />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 
