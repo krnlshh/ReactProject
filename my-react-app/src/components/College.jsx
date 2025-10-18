@@ -12,3 +12,4 @@ const College = () => {
 
 export default College;
 
+

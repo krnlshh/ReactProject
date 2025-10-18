@@ -1453,11 +1453,163 @@ function Mouse({ render }) {
                 </div>
             </div>
 
-            {/* Question 21: Context API vs Redux */}
+            {/* Question 21: What is Context API */}
+            <div className="card mb-4 border-0 shadow">
+                <div className="card-header bg-gradient" style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}}>
+                    <h5 className="text-white mb-0">
+                        <span className="badge bg-light text-dark me-2">Q21</span>
+                        What is Context API?
+                    </h5>
+                </div>
+                <div className="card-body">
+                    <div className="alert alert-secondary mb-3">
+                        <strong>📝 Question:</strong>
+                        <p className="mb-0 mt-2">What is Context API in React? Why and when to use it?</p>
+                    </div>
+                    
+                    <button 
+                        className="btn btn-outline-primary btn-sm mb-3" 
+                        onClick={() => toggleAnswer(21)}
+                    >
+                        {showAnswer[21] ? '🔼 Hide Answer' : '🔽 Show Answer'}
+                    </button>
+                    
+                    {showAnswer[21] && (
+                        <div className="alert alert-light border">
+                            <h6 className="text-primary">🌐 What is Context API?</h6>
+                            <div className="bg-info bg-opacity-10 p-3 rounded mb-3">
+                                <p className="mb-0">
+                                    <strong>Context API</strong> is React's built-in feature to share data (state) across 
+                                    multiple components without passing props through every level. It's like a "global storage" 
+                                    that any component can access!
+                                </p>
+                            </div>
+
+                            <h6 className="text-primary mt-3">🎯 The Problem It Solves:</h6>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-danger bg-opacity-10 rounded">
+                                        <h6 className="text-danger">❌ Without Context (Prop Drilling)</h6>
+                                        <pre className="bg-dark text-light p-2 rounded mb-0 small">
+{`<App>
+  <Header user={user} />
+    <Main user={user} />
+      <Profile user={user} />
+        <Avatar user={user} />
+
+// Pass props 4 levels deep! 😫`}
+                                        </pre>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-success bg-opacity-10 rounded">
+                                        <h6 className="text-success">✅ With Context</h6>
+                                        <pre className="bg-dark text-light p-2 rounded mb-0 small">
+{`<UserContext.Provider value={user}>
+  <App>
+    <Header />
+    <Main />
+    <Avatar /> {/* Direct access! */}
+  </App>
+</UserContext.Provider>`}
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h6 className="text-primary mt-4">💡 How to Use Context API (3 Steps):</h6>
+                            
+                            <div className="mb-3">
+                                <strong>Step 1: Create Context</strong>
+                                <pre className="bg-dark text-light p-3 rounded mt-2">
+{`import { createContext } from 'react';
+
+const UserContext = createContext();`}
+                                </pre>
+                            </div>
+
+                            <div className="mb-3">
+                                <strong>Step 2: Provide Context (Parent Component)</strong>
+                                <pre className="bg-dark text-light p-3 rounded mt-2">
+{`import { useState } from 'react';
+
+function App() {
+  const [user, setUser] = useState({ 
+    name: 'John', 
+    age: 25 
+  });
+
+  return (
+    <UserContext.Provider value={user}>
+      <Header />
+      <Profile />
+    </UserContext.Provider>
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="mb-3">
+                                <strong>Step 3: Consume Context (Child Component)</strong>
+                                <pre className="bg-dark text-light p-3 rounded mt-2">
+{`import { useContext } from 'react';
+
+function Profile() {
+  const user = useContext(UserContext);
+  
+  return <h1>Hello, {user.name}!</h1>;
+}`}
+                                </pre>
+                            </div>
+
+                            <h6 className="text-primary mt-4">📌 When to Use Context API:</h6>
+                            <div className="row mt-2">
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-success bg-opacity-10 rounded">
+                                        <h6 className="text-success">✅ Good Use Cases:</h6>
+                                        <ul className="small mb-0">
+                                            <li>Theme (dark/light mode)</li>
+                                            <li>User authentication data</li>
+                                            <li>Language/localization</li>
+                                            <li>Shopping cart data</li>
+                                            <li>Global settings</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="p-3 bg-warning bg-opacity-10 rounded">
+                                        <h6 className="text-warning">⚠️ Avoid For:</h6>
+                                        <ul className="small mb-0">
+                                            <li>Frequently changing data</li>
+                                            <li>Local component state</li>
+                                            <li>Props that go 1-2 levels deep</li>
+                                            <li>Performance-critical updates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="alert alert-info mt-3">
+                                <strong>🎯 Simple Analogy:</strong> Context API is like a TV remote that everyone in the house can use, 
+                                instead of passing it hand-to-hand! 📺
+                            </div>
+
+                            <div className="alert alert-success mt-2">
+                                <strong>💡 Remember:</strong><br/>
+                                • <strong>Create</strong> → <strong>Provide</strong> → <strong>Consume</strong><br/>
+                                • Any component can access it (no prop drilling!)<br/>
+                                • Perfect for global data that doesn't change often
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {/* Question 22: Context API vs Redux */}
             <div className="card mb-4 border-0 shadow">
                 <div className="card-header bg-gradient" style={{background: 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)'}}>
                     <h5 className="text-dark mb-0">
-                        <span className="badge bg-dark text-white me-2">Q21</span>
+                        <span className="badge bg-dark text-white me-2">Q22</span>
                         Context API vs Redux
                     </h5>
                 </div>
@@ -1469,12 +1621,12 @@ function Mouse({ render }) {
                     
                     <button 
                         className="btn btn-outline-info btn-sm mb-3" 
-                        onClick={() => toggleAnswer(21)}
+                        onClick={() => toggleAnswer(22)}
                     >
-                        {showAnswer[21] ? '🔼 Hide Answer' : '🔽 Show Answer'}
+                        {showAnswer[22] ? '🔼 Hide Answer' : '🔽 Show Answer'}
                     </button>
                     
-                    {showAnswer[21] && (
+                    {showAnswer[22] && (
                         <div>
                             <div className="table-responsive">
                                 <table className="table table-bordered">

@@ -12,3 +12,4 @@ const ClassComponent = () => {
 
 export default ClassComponent;
 
+
