@@ -1,296 +1,345 @@
 {
   "users": [
-  {
-    "id": 1,
-    "name": "John Doe",
-    "email": "john@example.com",
-    "password": "password123",
-    "avatar": "https://ui-avatars.com/api/?name=John+Doe",
-    "role": "admin"
-  },
-  {
-    "id": 2,
-    "name": "Sarah Johnson",
-    "email": "sarah@example.com",
-    "password": "password123",
-    "avatar": "https://ui-avatars.com/api/?name=Sarah+Johnson",
-    "role": "user"
-  },
-  {
-    "id": 3,
-    "name": "Mike Wilson",
-    "email": "mike@example.com",
-    "password": "password123",
-    "avatar": "https://ui-avatars.com/api/?name=Mike+Wilson",
-    "role": "user"
-  },
-  {
-    "id": 4,
-    "name": "Emily Brown",
-    "email": "emily@example.com",
-    "password": "password123",
-    "avatar": "https://ui-avatars.com/api/?name=Emily+Brown",
-    "role": "user"
-  },
-  {
-    "id": 5,
-    "name": "David Lee",
-    "email": "david@example.com",
-    "password": "password123",
-    "avatar": "https://ui-avatars.com/api/?name=David+Lee",
-    "role": "user"
-  }
-],"tasks": [
-  {
-    "id": 1,
-    "title": "Build Login Page",
-    "description": "Create a responsive login page with form validation and error handling",
-    "status": "in-progress",
-    "priority": "high",
-    "assignedTo": 2,
-    "createdBy": 1,
-    "createdAt": "2025-01-10T09:00:00.000Z",
-    "deadline": "2025-01-15T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 2,
-    "title": "Design Dashboard UI",
-    "description": "Create wireframes and mockups for the main dashboard interface",
-    "status": "completed",
-    "priority": "high",
-    "assignedTo": 3,
-    "createdBy": 1,
-    "createdAt": "2025-01-08T10:00:00.000Z",
-    "deadline": "2025-01-12T17:00:00.000Z",
-    "completedAt": "2025-01-11T16:30:00.000Z"
-  },
-  {
-    "id": 3,
-    "title": "Setup Database Schema",
-    "description": "Design and implement the database structure for tasks and users",
-    "status": "completed",
-    "priority": "high",
-    "assignedTo": 4,
-    "createdBy": 1,
-    "createdAt": "2025-01-09T11:00:00.000Z",
-    "deadline": "2025-01-13T17:00:00.000Z",
-    "completedAt": "2025-01-12T15:00:00.000Z"
-  },
-  {
-    "id": 4,
-    "title": "Implement Task Filters",
-    "description": "Add filtering options for tasks by status, priority, and assigned user",
-    "status": "in-progress",
-    "priority": "medium",
-    "assignedTo": 2,
-    "createdBy": 1,
-    "createdAt": "2025-01-11T09:30:00.000Z",
-    "deadline": "2025-01-18T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 5,
-    "title": "Create User Profile Page",
-    "description": "Build user profile page with edit functionality and avatar upload",
-    "status": "todo",
-    "priority": "medium",
-    "assignedTo": 5,
-    "createdBy": 1,
-    "createdAt": "2025-01-12T10:00:00.000Z",
-    "deadline": "2025-01-20T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 6,
-    "title": "Add Search Functionality",
-    "description": "Implement search feature to find tasks by title and description",
-    "status": "in-progress",
-    "priority": "medium",
-    "assignedTo": 3,
-    "createdBy": 1,
-    "createdAt": "2025-01-13T08:00:00.000Z",
-    "deadline": "2025-01-19T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 7,
-    "title": "Write API Documentation",
-    "description": "Document all API endpoints with examples and response formats",
-    "status": "todo",
-    "priority": "low",
-    "assignedTo": 4,
-    "createdBy": 1,
-    "createdAt": "2025-01-14T09:00:00.000Z",
-    "deadline": "2025-01-25T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 8,
-    "title": "Implement Dark Mode",
-    "description": "Add dark mode theme toggle with localStorage persistence",
-    "status": "in-progress",
-    "priority": "low",
-    "assignedTo": 2,
-    "createdBy": 1,
-    "createdAt": "2025-01-15T10:30:00.000Z",
-    "deadline": "2025-01-22T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 9,
-    "title": "Add Task Comments",
-    "description": "Enable users to add comments and discussion on tasks",
-    "status": "in-progress",
-    "priority": "high",
-    "assignedTo": 3,
-    "createdBy": 1,
-    "createdAt": "2025-01-16T11:00:00.000Z",
-    "deadline": "2025-01-21T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 10,
-    "title": "Setup Email Notifications",
-    "description": "Configure email notifications for task assignments and updates",
-    "status": "todo",
-    "priority": "medium",
-    "assignedTo": 5,
-    "createdBy": 1,
-    "createdAt": "2025-01-17T09:00:00.000Z",
-    "deadline": "2025-01-24T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 11,
-    "title": "Create Mobile Responsive Design",
-    "description": "Ensure all pages work perfectly on mobile devices",
-    "status": "in-progress",
-    "priority": "high",
-    "assignedTo": 4,
-    "createdBy": 1,
-    "createdAt": "2025-01-18T10:00:00.000Z",
-    "deadline": "2025-01-23T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 12,
-    "title": "Write Unit Tests",
-    "description": "Create comprehensive unit tests for all components",
-    "status": "todo",
-    "priority": "medium",
-    "assignedTo": 2,
-    "createdBy": 1,
-    "createdAt": "2025-01-19T08:30:00.000Z",
-    "deadline": "2025-01-26T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 13,
-    "title": "Optimize Performance",
-    "description": "Identify and fix performance bottlenecks, implement lazy loading",
-    "status": "todo",
-    "priority": "low",
-    "assignedTo": 3,
-    "createdBy": 1,
-    "createdAt": "2025-01-20T09:00:00.000Z",
-    "deadline": "2025-01-28T17:00:00.000Z",
-    "completedAt": null
-  },
-  {
-    "id": 14,
-    "title": "Setup CI/CD Pipeline",
-    "description": "Configure automated testing and deployment pipeline",
-    "status": "completed",
-    "priority": "medium",
-    "assignedTo": 5,
-    "createdBy": 1,
-    "createdAt": "2025-01-07T10:00:00.000Z",
-    "deadline": "2025-01-14T17:00:00.000Z",
-    "completedAt": "2025-01-13T14:00:00.000Z"
-  },
-  {
-    "id": 15,
-    "title": "Implement Task Drag and Drop",
-    "description": "Allow users to drag tasks between columns to change status",
-    "status": "completed",
-    "priority": "low",
-    "assignedTo": 4,
-    "createdBy": 1,
-    "createdAt": "2025-01-06T11:00:00.000Z",
-    "deadline": "2025-01-16T17:00:00.000Z",
-    "completedAt": "2025-01-15T16:00:00.000Z"
-  }
-],"comments": [
-  {
-    "id": 1,
-    "taskId": 1,
-    "userId": 2,
-    "text": "I've started working on the design mockups. Should be ready by tomorrow.",
-    "createdAt": "2025-01-11T14:30:00.000Z"
-  },
-  {
-    "id": 2,
-    "taskId": 1,
-    "userId": 1,
-    "text": "Great! Make sure to include mobile responsive designs as well.",
-    "createdAt": "2025-01-11T15:45:00.000Z"
-  },
-  {
-    "id": 3,
-    "taskId": 1,
-    "userId": 2,
-    "text": "Will do! I'm also adding dark mode variants.",
-    "createdAt": "2025-01-11T16:00:00.000Z"
-  },
-  {
-    "id": 4,
-    "taskId": 4,
-    "userId": 3,
-    "text": "I need clarification on the filter requirements. Should we include date range filtering?",
-    "createdAt": "2025-01-12T10:15:00.000Z"
-  },
-  {
-    "id": 5,
-    "taskId": 4,
-    "userId": 1,
-    "text": "Yes, please add date range filtering. It's mentioned in the specs document.",
-    "createdAt": "2025-01-12T11:30:00.000Z"
-  },
-  {
-    "id": 6,
-    "taskId": 9,
-    "userId": 3,
-    "text": "Comment feature is almost done. Testing the real-time updates now.",
-    "createdAt": "2025-01-17T13:20:00.000Z"
-  },
-  {
-    "id": 7,
-    "taskId": 9,
-    "userId": 4,
-    "text": "Awesome! Can you also add edit and delete functionality for comments?",
-    "createdAt": "2025-01-17T14:00:00.000Z"
-  },
-  {
-    "id": 8,
-    "taskId": 11,
-    "userId": 4,
-    "text": "Mobile design is looking good on iOS. Testing Android devices next.",
-    "createdAt": "2025-01-19T09:45:00.000Z"
-  },
-  {
-    "id": 9,
-    "taskId": 11,
-    "userId": 1,
-    "text": "Perfect! Don't forget to test on tablets as well.",
-    "createdAt": "2025-01-19T10:30:00.000Z"
-  },
-  {
-    "id": 10,
-    "taskId": 6,
-    "userId": 5,
-    "text": "The search is working but it's a bit slow with large datasets. Should we add debouncing?",
-    "createdAt": "2025-01-14T11:00:00.000Z"
-  }
-]
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "avatar": "https://ui-avatars.com/api/?name=John+Doe",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Sarah Johnson",
+      "email": "sarah@example.com",
+      "password": "password123",
+      "avatar": "https://ui-avatars.com/api/?name=Sarah+Johnson",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "Mike Wilson",
+      "email": "mike@example.com",
+      "password": "password123",
+      "avatar": "https://ui-avatars.com/api/?name=Mike+Wilson",
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "name": "Emily Brown",
+      "email": "emily@example.com",
+      "password": "password123",
+      "avatar": "https://ui-avatars.com/api/?name=Emily+Brown",
+      "role": "user"
+    },
+    {
+      "id": "5",
+      "name": "David Lee",
+      "email": "david@example.com",
+      "password": "password123",
+      "avatar": "https://ui-avatars.com/api/?name=David+Lee",
+      "role": "user"
+    },
+    {
+      "id": "4ec1",
+      "name": "Krunal Shah",
+      "email": "krnlshh2@gmail.com",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?u=1760819634944",
+      "role": "user"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Build Login Page",
+      "description": "Create a responsive login page with form validation and error handling",
+      "status": "in-progress",
+      "priority": "high",
+      "assignedTo": 2,
+      "createdBy": 1,
+      "createdAt": "2025-01-10T09:00:00.000Z",
+      "deadline": "2025-01-15T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "2",
+      "title": "Design Dashboard UI",
+      "description": "Create wireframes and mockups for the main dashboard interface",
+      "status": "completed",
+      "priority": "high",
+      "assignedTo": 3,
+      "createdBy": 1,
+      "createdAt": "2025-01-08T10:00:00.000Z",
+      "deadline": "2025-01-12T17:00:00.000Z",
+      "completedAt": "2025-01-11T16:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Setup Database Schema",
+      "description": "Design and implement the database structure for tasks and users",
+      "status": "completed",
+      "priority": "high",
+      "assignedTo": 4,
+      "createdBy": 1,
+      "createdAt": "2025-01-09T11:00:00.000Z",
+      "deadline": "2025-01-13T17:00:00.000Z",
+      "completedAt": "2025-01-12T15:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "title": "Implement Task Filters",
+      "description": "Add filtering options for tasks by status, priority, and assigned user",
+      "status": "in-progress",
+      "priority": "medium",
+      "assignedTo": 2,
+      "createdBy": 1,
+      "createdAt": "2025-01-11T09:30:00.000Z",
+      "deadline": "2025-01-18T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "5",
+      "title": "Create User Profile Page",
+      "description": "Build user profile page with edit functionality and avatar upload",
+      "status": "todo",
+      "priority": "medium",
+      "assignedTo": 5,
+      "createdBy": 1,
+      "createdAt": "2025-01-12T10:00:00.000Z",
+      "deadline": "2025-01-20T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "6",
+      "title": "Add Search Functionality",
+      "description": "Implement search feature to find tasks by title and description",
+      "status": "in-progress",
+      "priority": "medium",
+      "assignedTo": 3,
+      "createdBy": 1,
+      "createdAt": "2025-01-13T08:00:00.000Z",
+      "deadline": "2025-01-19T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "7",
+      "title": "Write API Documentation",
+      "description": "Document all API endpoints with examples and response formats",
+      "status": "todo",
+      "priority": "low",
+      "assignedTo": 4,
+      "createdBy": 1,
+      "createdAt": "2025-01-14T09:00:00.000Z",
+      "deadline": "2025-01-25T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "8",
+      "title": "Implement Dark Mode",
+      "description": "Add dark mode theme toggle with localStorage persistence",
+      "status": "in-progress",
+      "priority": "low",
+      "assignedTo": 2,
+      "createdBy": 1,
+      "createdAt": "2025-01-15T10:30:00.000Z",
+      "deadline": "2025-01-22T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "9",
+      "title": "Add Task Comments",
+      "description": "Enable users to add comments and discussion on tasks",
+      "status": "in-progress",
+      "priority": "high",
+      "assignedTo": 3,
+      "createdBy": 1,
+      "createdAt": "2025-01-16T11:00:00.000Z",
+      "deadline": "2025-01-21T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "10",
+      "title": "Setup Email Notifications",
+      "description": "Configure email notifications for task assignments and updates",
+      "status": "todo",
+      "priority": "medium",
+      "assignedTo": 5,
+      "createdBy": 1,
+      "createdAt": "2025-01-17T09:00:00.000Z",
+      "deadline": "2025-01-24T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "11",
+      "title": "Create Mobile Responsive Design",
+      "description": "Ensure all pages work perfectly on mobile devices",
+      "status": "in-progress",
+      "priority": "high",
+      "assignedTo": 4,
+      "createdBy": 1,
+      "createdAt": "2025-01-18T10:00:00.000Z",
+      "deadline": "2025-01-23T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "12",
+      "title": "Write Unit Tests",
+      "description": "Create comprehensive unit tests for all components",
+      "status": "todo",
+      "priority": "medium",
+      "assignedTo": 2,
+      "createdBy": 1,
+      "createdAt": "2025-01-19T08:30:00.000Z",
+      "deadline": "2025-01-26T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "13",
+      "title": "Optimize Performance",
+      "description": "Identify and fix performance bottlenecks, implement lazy loading",
+      "status": "todo",
+      "priority": "low",
+      "assignedTo": 3,
+      "createdBy": 1,
+      "createdAt": "2025-01-20T09:00:00.000Z",
+      "deadline": "2025-01-28T17:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "14",
+      "title": "Setup CI/CD Pipeline",
+      "description": "Configure automated testing and deployment pipeline",
+      "status": "completed",
+      "priority": "medium",
+      "assignedTo": 5,
+      "createdBy": 1,
+      "createdAt": "2025-01-07T10:00:00.000Z",
+      "deadline": "2025-01-14T17:00:00.000Z",
+      "completedAt": "2025-01-13T14:00:00.000Z"
+    },
+    {
+      "id": "15",
+      "title": "Implement Task Drag and Drop",
+      "description": "Allow users to drag tasks between columns to change status",
+      "status": "completed",
+      "priority": "low",
+      "assignedTo": 4,
+      "createdBy": 1,
+      "createdAt": "2025-01-06T11:00:00.000Z",
+      "deadline": "2025-01-16T17:00:00.000Z",
+      "completedAt": "2025-01-15T16:00:00.000Z"
+    },
+    {
+      "id": "a529",
+      "title": "api handle ",
+      "description": "Give api data to user api \nemail \npasword \n",
+      "priority": "low",
+      "status": "todo",
+      "dueDate": "2025-10-18",
+      "assignedTo": 4,
+      "createdBy": 1,
+      "createdAt": "2025-10-18T13:32:37.686Z",
+      "deadline": "2025-10-18T00:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "9193",
+      "title": "Handle intigration documentation and create workflow",
+      "description": "Understand existing data , create your understanding document ",
+      "priority": "medium",
+      "status": "todo",
+      "dueDate": "2025-10-18",
+      "assignedTo": 1,
+      "createdBy": 1,
+      "createdAt": "2025-10-18T13:34:14.343Z",
+      "deadline": "2025-10-18T00:00:00.000Z",
+      "completedAt": null
+    },
+    {
+      "id": "9074",
+      "title": "Test title",
+      "description": "Test Description ",
+      "priority": "medium",
+      "status": "todo",
+      "dueDate": "2025-10-18",
+      "assignedTo": 1,
+      "createdBy": 1,
+      "createdAt": "2025-10-18T13:40:02.004Z",
+      "deadline": "2025-10-18T00:00:00.000Z",
+      "completedAt": null
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "taskId": 1,
+      "userId": 2,
+      "text": "I've started working on the design mockups. Should be ready by tomorrow.",
+      "createdAt": "2025-01-11T14:30:00.000Z"
+    },
+    {
+      "id": "2",
+      "taskId": 1,
+      "userId": 1,
+      "text": "Great! Make sure to include mobile responsive designs as well.",
+      "createdAt": "2025-01-11T15:45:00.000Z"
+    },
+    {
+      "id": "3",
+      "taskId": 1,
+      "userId": 2,
+      "text": "Will do! I'm also adding dark mode variants.",
+      "createdAt": "2025-01-11T16:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "taskId": 4,
+      "userId": 3,
+      "text": "I need clarification on the filter requirements. Should we include date range filtering?",
+      "createdAt": "2025-01-12T10:15:00.000Z"
+    },
+    {
+      "id": "5",
+      "taskId": 4,
+      "userId": 1,
+      "text": "Yes, please add date range filtering. It's mentioned in the specs document.",
+      "createdAt": "2025-01-12T11:30:00.000Z"
+    },
+    {
+      "id": "6",
+      "taskId": 9,
+      "userId": 3,
+      "text": "Comment feature is almost done. Testing the real-time updates now.",
+      "createdAt": "2025-01-17T13:20:00.000Z"
+    },
+    {
+      "id": "7",
+      "taskId": 9,
+      "userId": 4,
+      "text": "Awesome! Can you also add edit and delete functionality for comments?",
+      "createdAt": "2025-01-17T14:00:00.000Z"
+    },
+    {
+      "id": "8",
+      "taskId": 11,
+      "userId": 4,
+      "text": "Mobile design is looking good on iOS. Testing Android devices next.",
+      "createdAt": "2025-01-19T09:45:00.000Z"
+    },
+    {
+      "id": "9",
+      "taskId": 11,
+      "userId": 1,
+      "text": "Perfect! Don't forget to test on tablets as well.",
+      "createdAt": "2025-01-19T10:30:00.000Z"
+    },
+    {
+      "id": "10",
+      "taskId": 6,
+      "userId": 5,
+      "text": "The search is working but it's a bit slow with large datasets. Should we add debouncing?",
+      "createdAt": "2025-01-14T11:00:00.000Z"
+    }
+  ]
 }

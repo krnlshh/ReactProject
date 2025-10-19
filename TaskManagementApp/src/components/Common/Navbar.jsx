@@ -80,8 +80,13 @@ const Navbar = () => {
                         // Login link - Clicking goes to login page
                         <Link to="/login" className="nav-link">
                             🔐 Login
-                        </Link>
+                        </Link>                       
+                        
                     )}
+                    <Link to="/register" className='nav-link'>
+                        Register
+                    </Link>
+                    
                 </div>
             </div>
         </nav>
