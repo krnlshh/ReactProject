@@ -78,14 +78,16 @@ const Navbar = () => {
                     ) : (
                         // USER IS NOT LOGGED IN - Show this block
                         // Login link - Clicking goes to login page
+                        <>
                         <Link to="/login" className="nav-link">
                             🔐 Login
                         </Link>                       
-                        
+                        <Link to="/register" className="nav-link">
+                            🔐 Register
+                        </Link>
+                        </>
                     )}
-                    <Link to="/register" className='nav-link'>
-                        Register
-                    </Link>
+                    
                     
                 </div>
             </div>

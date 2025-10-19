@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
 import Login from './components/Auth/Login'
 import ProtectedRoute from './components/Common/ProtectedRoute'
+import Register from './components/Auth/Register'
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
         <Route path="/login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
