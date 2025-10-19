@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [tasks, setTasks] = useState([])
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
+    const [showAllTasks, setShowAllTasks] = useState(false) 
     
     // Fetch tasks and users on component mount
     useEffect(() => {
@@ -42,14 +43,18 @@ const Dashboard = () => {
         // Add new task to the list immediately
         setTasks(prevTasks => [...prevTasks, newTask])
     }
-    
+    const visibleTasks = showAllTasks 
+        ? tasks  
+        : tasks.filter(t => 
+            t.assignedTo === currentUser?.id || t.createdBy === currentUser?.id
+        )    
     // Filter tasks by status
     const todoTasks = tasks.filter(t => t.status === 'todo')
     const inProgressTasks = tasks.filter(t => t.status === 'in-progress')
     const completedTasks = tasks.filter(t => t.status === 'completed')
     
     // Calculate statistics
-    const totalTasks = tasks.length
+    const totalTasks = visibleTasks.length
     const inProgressCount = inProgressTasks.length
     const completedCount = completedTasks.length
     
@@ -122,6 +127,27 @@ const Dashboard = () => {
                         
                         {/* Task Board Title */}
                         <h4 className="mt-4 mb-3">Your Task Board</h4>
+
+                        {/* Toggle buttons between My Tasks and All Tasks */}
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                            <h3 className="mb-0">📋 Your Task Board</h3>
+                            
+                            {/* Toggle Button Group */}
+                            <div className="btn-group" role="group">
+                                <button 
+                                    className={`btn ${!showAllTasks ? 'btn-primary' : 'btn-outline-primary'}`}
+                                    onClick={() => setShowAllTasks(false)}
+                                >
+                                    📋 My Tasks
+                                </button>
+                                <button 
+                                    className={`btn ${showAllTasks ? 'btn-primary' : 'btn-outline-primary'}`}
+                                    onClick={() => setShowAllTasks(true)}
+                                >
+                                    👥 All Tasks
+                                </button>
+                            </div>
+                        </div>
                         
                         {/* 3 Columns - Kanban Style */}
                         <div className="row mt-4">
