@@ -16,8 +16,7 @@ const Navbar = () => {
         <Link to="/practice" style={{color: "#fff", textDecoration: "none", padding: "8px 15px", borderRadius: "4px"}}>Practice</Link>
         <Link to="/interview" style={{color: "#fff", textDecoration: "none", padding: "8px 15px", borderRadius: "4px", backgroundColor: "#007bff"}}>Interview</Link>
         <Link to="/task-management" style={{color: "#fff", textDecoration: "none", padding: "8px 15px", borderRadius: "4px", backgroundColor: "#17a2b8", fontWeight: "bold"}}>🎯 Task Management</Link>
-        <Link to="/challenge-details" style={{color: "#fff", textDecoration: "none", padding: "8px 15px", borderRadius: "4px", backgroundColor: "#28a745", fontWeight: "bold"}}>📋 Challenge Details</Link>
-      </div>
+        <Link to="/component-exercises" style={{color: "#fff", textDecoration: "none", padding: "8px 15px", borderRadius: "4px", backgroundColor: "#28a745", fontWeight: "bold"}}>📋 Context API</Link>      </div>
     </nav>      
   )
 }

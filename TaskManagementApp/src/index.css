@@ -76,3 +76,14 @@ html {
     background-color: #f9f9f9;
   }
 }
+.light {
+  background-color: #ffffff;
+  color: lch(32.13% 6.34 287.58);
+  padding: 20px;
+}
+
+.dark {
+  background-color: #ccc;
+  color: #ffffff;
+  padding: 20px;
+}

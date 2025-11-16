@@ -1,6 +1,6 @@
 import Counter  from "../components/Counter";
 import Calculator from "../components/Calculator";
-import Greeting from "../components/Greeting";
+// import Greeting from "../components/Greeting"; // ← Commented out - file doesn't exist
 import ColorChange from "../components/ColorChange";
 import Time from "../components/Time";
 import DynamicList from "../components/DynamicList";
@@ -100,7 +100,7 @@ const PracticeComponents = () => {
       
       <Counter/>  
       <Calculator/>  
-      <Greeting/>
+      {/* <Greeting/> */}
       <ColorChange/>
       <Time/>
       <DynamicList/>
@@ -178,6 +178,7 @@ const PracticeComponents = () => {
 
       <hr/>
       <ApiData/>
+
     </div>
   );
 };

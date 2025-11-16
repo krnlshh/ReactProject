@@ -15,7 +15,7 @@ import QuestionAndAnswer from "./Interview_Example/QuestionAndAnswer";
 import TaskManagement from "./Interview_Example/TaskManagement";
 import InterviewComponents from "./pages/InterviewComponents";
 import ChallengeDetails from "./pages/ChallengeDetails";
-
+import ComponentExercises from "./components/ComponentExercises";
 
 function App() {
   return (
@@ -31,6 +31,8 @@ function App() {
         <Route path="/interview" element={<InterviewComponents />} />
         <Route path="/task-management" element={<TaskManagement />} />
         <Route path="/challenge-details" element={<ChallengeDetails />} />
+        <Route path="/component-exercises" element={<ComponentExercises />} />
+        
         <Route path="*" element={<NotFound />} />
       </Route>
 
@@ -42,6 +44,8 @@ function App() {
         <Route path="service" element={<Service />} />
       </Route>
     </Routes>
+
+    
   )
 }
 
