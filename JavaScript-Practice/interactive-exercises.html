@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive JavaScript Exercises</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .exercise-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .exercise-title {
+            font-size: 24px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .difficulty {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .difficulty.easy { background: #d4edda; color: #155724; }
+        .difficulty.medium { background: #fff3cd; color: #856404; }
+        .difficulty.hard { background: #f8d7da; color: #721c24; }
+
+        .exercise-description {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .input-section {
+            margin: 20px 0;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: border 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 100px;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        button.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .output {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            min-height: 50px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .output.success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+
+        .output.error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .result-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge.pass {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge.fail {
+            background: #dc3545;
+            color: white;
+        }
+
+        .visual-output {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .visual-item {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .todo-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Interactive JavaScript Exercises</h1>
+        <p class="subtitle">Practice JavaScript concepts with real-time feedback</p>
+
+        <!-- Exercise 1: Array Filter -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>📊</span>
+                    <span>Exercise 1: Array Filtering</span>
+                </div>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="exercise-description">
+                Filter an array of numbers. Enter comma-separated numbers and a minimum value to filter by.
+            </div>
+            <div class="input-section">
+                <input type="text" id="arrayInput1" placeholder="Enter numbers (e.g., 5,12,8,130,44)" value="5,12,8,130,44">
+                <input type="number" id="minValue" placeholder="Minimum value" value="10">
+            </div>
+            <button onclick="filterArray()">Filter Array</button>
+            <div id="output1" class="output"></div>
+        </div>
+
+        <!-- Exercise 2: String Manipulation -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>🔤</span>
+                    <span>Exercise 2: String Reverser</span>
+                </div>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="exercise-description">
+                Reverse a string and count vowels/consonants.
+            </div>
+            <div class="input-section">
+                <input type="text" id="stringInput" placeholder="Enter a string" value="Hello JavaScript">
+            </div>
+            <button onclick="reverseString()">Reverse String</button>
+            <button class="secondary" onclick="countCharacters()">Count Characters</button>
+            <div id="output2" class="output"></div>
+        </div>
+
+        <!-- Exercise 3: Todo List -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>✅</span>
+                    <span>Exercise 3: Todo List Manager</span>
+                </div>
+                <span class="difficulty medium">Medium</span>
+            </div>
+            <div class="exercise-description">
+                Create a simple todo list with add, complete, and delete functionality.
+            </div>
+            <div class="input-section">
+                <input type="text" id="todoInput" placeholder="Enter a new todo" onkeypress="if(event.key==='Enter') addTodo()">
+            </div>
+            <button onclick="addTodo()">Add Todo</button>
+            <button class="secondary" onclick="clearCompleted()">Clear Completed</button>
+            <div id="output3" class="output"></div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTodos">0</div>
+                    <div class="stat-label">Total Tasks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="completedTodos">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="pendingTodos">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 4: Object Manipulation -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>👥</span>
+                    <span>Exercise 4: User Management</span>
+                </div>
+                <span class="difficulty medium">Medium</span>
+            </div>
+            <div class="exercise-description">
+                Work with an array of user objects - filter, sort, and transform data.
+            </div>
+            <button onclick="showAllUsers()">Show All Users</button>
+            <button class="secondary" onclick="filterAdults()">Filter Adults (18+)</button>
+            <button class="success" onclick="sortByAge()">Sort by Age</button>
+            <button onclick="getUserNames()">Get Names Only</button>
+            <div id="output4" class="output"></div>
+        </div>
+
+        <!-- Exercise 5: Calculator -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>🧮</span>
+                    <span>Exercise 5: Simple Calculator</span>
+                </div>
+                <span class="difficulty medium">Medium</span>
+            </div>
+            <div class="exercise-description">
+                Perform basic arithmetic operations with error handling.
+            </div>
+            <div class="input-section">
+                <input type="number" id="num1" placeholder="First number" value="10">
+                <input type="number" id="num2" placeholder="Second number" value="5">
+            </div>
+            <button onclick="calculate('add')">Add (+)</button>
+            <button class="secondary" onclick="calculate('subtract')">Subtract (-)</button>
+            <button class="success" onclick="calculate('multiply')">Multiply (×)</button>
+            <button onclick="calculate('divide')">Divide (÷)</button>
+            <div id="output5" class="output"></div>
+        </div>
+
+        <!-- Exercise 6: Async Simulation -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>⏱️</span>
+                    <span>Exercise 6: Async Data Fetcher</span>
+                </div>
+                <span class="difficulty hard">Hard</span>
+            </div>
+            <div class="exercise-description">
+                Simulate fetching data from an API with loading states and error handling.
+            </div>
+            <button onclick="fetchUsers()">Fetch Users</button>
+            <button class="secondary" onclick="fetchWithError()">Simulate Error</button>
+            <button class="success" onclick="fetchMultiple()">Fetch Multiple</button>
+            <div id="output6" class="output"></div>
+        </div>
+
+        <!-- Exercise 7: HOF Practice -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <div class="exercise-title">
+                    <span>🔥</span>
+                    <span>Exercise 7: Higher Order Functions</span>
+                </div>
+                <span class="difficulty hard">Hard</span>
+            </div>
+            <div class="exercise-description">
+                Practice map, filter, reduce with real-world examples.
+            </div>
+            <button onclick="runMapExample()">Map Example</button>
+            <button class="secondary" onclick="runFilterExample()">Filter Example</button>
+            <button class="success" onclick="runReduceExample()">Reduce Example</button>
+            <button onclick="runChainExample()">Chain Methods</button>
+            <div id="output7" class="output"></div>
+        </div>
+
+    </div>
+
+    <script>
+        // 🎯 Exercise 1: Array Filtering
+        // TODO: Write your filterArray() function here
+        function filterArray() {
+            // Your code here
+        }
+
+        // 🎯 Exercise 2: String Manipulation
+        // TODO: Write your reverseString() function here
+        function reverseString() {
+            // Your code here
+        }
+
+        // TODO: Write your countCharacters() function here
+        function countCharacters() {
+            // Your code here
+        }
+
+        // 🎯 Exercise 3: Todo List
+        // TODO: Initialize your todos array and functions here
+        let todos = [];
+        let todoId = 1;
+
+        function addTodo() {
+            // Your code here
+        }
+
+        function toggleTodo(id) {
+            // Your code here
+        }
+
+        function deleteTodo(id) {
+            // Your code here
+        }
+
+        function clearCompleted() {
+            // Your code here
+        }
+
+        function renderTodos() {
+            // Your code here
+        }
+
+        // 🎯 Exercise 4: User Management
+        // Sample data provided for you
+        const users = [
+            { name: 'Alice', age: 25, role: 'Developer' },
+            { name: 'Bob', age: 17, role: 'Student' },
+            { name: 'Charlie', age: 30, role: 'Designer' },
+            { name: 'Diana', age: 22, role: 'Developer' },
+            { name: 'Eve', age: 16, role: 'Student' },
+            { name: 'Frank', age: 35, role: 'Manager' }
+        ];
+
+        function showAllUsers() {
+            // Your code here
+        }
+
+        function filterAdults() {
+            // Your code here
+        }
+
+        function sortByAge() {
+            // Your code here
+        }
+
+        function getUserNames() {
+            // Your code here
+        }
+
+        // 🎯 Exercise 5: Calculator
+        function calculate(operation) {
+            // Your code here
+        }
+
+        // 🎯 Exercise 6: Async Simulation
+        function delay(ms) {
+            // Your code here - return a Promise
+        }
+
+        async function fetchUsers() {
+            // Your code here
+        }
+
+        async function fetchWithError() {
+            // Your code here
+        }
+
+        async function fetchMultiple() {
+            // Your code here
+        }
+
+        // 🎯 Exercise 7: Higher Order Functions
+        // Sample data provided for you
+        const products = [
+            { name: 'Laptop', price: 999, category: 'Electronics' },
+            { name: 'Phone', price: 699, category: 'Electronics' },
+            { name: 'Shirt', price: 29, category: 'Clothing' },
+            { name: 'Shoes', price: 89, category: 'Clothing' },
+            { name: 'Watch', price: 199, category: 'Accessories' }
+        ];
+
+        function runMapExample() {
+            // Your code here
+        }
+
+        function runFilterExample() {
+            // Your code here
+        }
+
+        function runReduceExample() {
+            // Your code here
+        }
+
+        function runChainExample() {
+            // Your code here
+        }
+
+        // Initialize
+        window.onload = () => {
+            console.log('🚀 Ready to code! Start with Exercise 1!');
+        };
+    </script>
+</body>
+</html>
+

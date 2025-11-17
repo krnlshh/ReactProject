@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interview Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .exercise {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #0066cc;
+        }
+        button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0052a3;
+        }
+        .output {
+            background: #f0f0f0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .timer {
+            text-align: center;
+            font-size: 24px;
+            color: #ff6600;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 JavaScript Interview Practice</h1>
+    <div class="timer" id="timer">Time: 1:30:00</div>
+    
+    <div class="exercise">
+        <h2>📝 Exercise 1: Array Methods</h2>
+        <p>Open the browser console (F12) to see results!</p>
+        <button onclick="runExercise1()">Run Exercise 1</button>
+        <div class="output" id="output1"></div>
+    </div>
+
+    <div class="exercise">
+        <h2>📝 Exercise 2: Destructuring & Spread</h2>
+        <button onclick="runExercise2()">Run Exercise 2</button>
+        <div class="output" id="output2"></div>
+    </div>
+
+    <div class="exercise">
+        <h2>📝 Exercise 3: Promises & Async/Await</h2>
+        <button onclick="runExercise3()">Run Exercise 3</button>
+        <div class="output" id="output3"></div>
+    </div>
+
+    <div class="exercise">
+        <h2>📝 Exercise 4: Closures</h2>
+        <button onclick="runExercise4()">Run Exercise 4</button>
+        <div class="output" id="output4"></div>
+    </div>
+
+    <div class="exercise">
+        <h2>📝 Exercise 5: Arrow Functions & this</h2>
+        <button onclick="runExercise5()">Run Exercise 5</button>
+        <div class="output" id="output5"></div>
+    </div>
+
+    <div class="exercise">
+        <h2>📝 Exercise 6: Common Patterns</h2>
+        <button onclick="runExercise6()">Run Exercise 6</button>
+        <div class="output" id="output6"></div>
+    </div>
+
+    <!-- Include all exercise files -->
+    <script src="exercise1-arrays.js"></script>
+    <script src="exercise2-destructuring.js"></script>
+    <script src="exercise3-async.js"></script>
+    <script src="exercise4-closures.js"></script>
+    <script src="exercise5-arrow-functions.js"></script>
+    <script src="exercise6-patterns.js"></script>
+
+    <script>
+        // Timer
+        let totalSeconds = 90 * 60; // 1.5 hours
+        const timerElement = document.getElementById('timer');
+        
+        setInterval(() => {
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                timerElement.textContent = `Time: ${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                timerElement.textContent = "Time's up! 🔔";
+                timerElement.style.color = 'red';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+

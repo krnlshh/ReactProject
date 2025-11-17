@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krunal Shah - Senior Frontend Developer</title>
+    <style>
+        @media print {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header .title {
+            font-size: 20px;
+            letter-spacing: 1px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            background: #34495e;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #e8f4f8;
+            color: #2c3e50;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #3498db;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            border-left: 3px solid #3498db;
+            padding-left: 20px;
+        }
+
+        .experience-header {
+            margin-bottom: 12px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .job-title {
+            font-size: 16px;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .duration {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .project-description {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding-left: 25px;
+            margin-bottom: 10px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .responsibilities li:before {
+            content: "▸";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .degree {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .institution {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .ai-skills-section {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .ai-skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ai-skills-list li {
+            padding-left: 25px;
+            margin-bottom: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .ai-skills-list li:before {
+            content: "🤖";
+            position: absolute;
+            left: 0;
+        }
+
+        .download-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-buttons no-print">
+        <button class="download-btn" onclick="window.print()">📄 Print / Save as PDF</button>
+        <button class="download-btn" onclick="downloadAsWord()">📝 Download as Word</button>
+    </div>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>KRUNAL SHAH</h1>
+            <div class="title">SENIOR FRONTEND DEVELOPER</div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>Krnlshh2@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>📱</span>
+                <span>+91 9904625695</span>
+            </div>
+            <div class="contact-item">
+                <span>📍</span>
+                <span>Ahmedabad, India</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Professional Summary -->
+            <div class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="profile-text">
+                    Senior Frontend Developer with 7+ years of experience building scalable, high-performance web applications. 
+                    Expert in modern JavaScript frameworks and libraries including <strong>React, jQuery</strong>, with 
+                    extensive expertise in <strong>HTML5, CSS3, JavaScript (ES6+)</strong>. Proven track record of delivering 
+                    user-centric solutions using <strong>Vite, Bootstrap, WordPress, and Magento</strong>. Skilled in implementing 
+                    <strong>AI-powered development tools</strong> to enhance productivity and code quality. Strong advocate of 
+                    <strong>Agile/Scrum methodologies</strong> and version control systems (<strong>Git</strong>), with a demonstrated 
+                    ability to deliver secure, reliable, and maintainable solutions that drive business value.
+                </p>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Core Frontend Technologies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">jQuery</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>UI/UX & Styling</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Material UI</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Build Tools & Performance</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Vite</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">NPM/Yarn</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>CMS & E-commerce</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Magento</span>
+                            <span class="skill-tag">Custom Themes</span>
+                            <span class="skill-tag">Plugin Development</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Development Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git / GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">IntelliJ IDEA</span>
+                            <span class="skill-tag">Chrome DevTools</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Methodologies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Code Reviews</span>
+                            <span class="skill-tag">Security Best Practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Integration Skills -->
+            <div class="section">
+                <h2 class="section-title">AI-Enhanced Development</h2>
+                <div class="ai-skills-section">
+                    <ul class="ai-skills-list">
+                        <li><strong>AI-Powered Code Generation:</strong> Leveraging GitHub Copilot and ChatGPT for rapid prototyping, boilerplate generation, and intelligent code suggestions</li>
+                        <li><strong>Automated Code Quality:</strong> Utilizing Snyk AI for automated security vulnerability detection and dependency management</li>
+                        <li><strong>Smart Documentation:</strong> Employing AI for code reviews, documentation generation, and technical writing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <!-- Thomson Reuters -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">THOMSON REUTERS LTD</div>
+                        <div class="job-title">Senior Frontend Developer</div>
+                        <div class="duration">July 2019 - Present | Cleardocs, Australia</div>
+                    </div>
+                    
+                    <div class="project-description">
+                        <strong>Project:</strong> Cleardocs - Leading legal document solution platform in Australia, serving thousands of users with automated document generation and management capabilities.
+                    </div>
+
+                    <ul class="responsibilities">
+                        <li><strong>Feature Development:</strong> Delivered 10+ production-ready features enhancing user experience and platform functionality with responsive, accessible interfaces</li>
+                        <li><strong>UI/UX Enhancement:</strong> Redesigned and optimized UI components improving user satisfaction scores and reducing bounce rates</li>
+                        <li><strong>Performance Optimization:</strong> Implemented advanced caching strategies and search engine enhancements, improving page load times</li>
+                        <li><strong>Admin Dashboard:</strong> Built comprehensive admin features with modern UI libraries, reducing support effort through automated workflows</li>
+                        <li><strong>Quality Assurance:</strong> Created automated test suites and unit test cases for quality testing to ensure reliable application performance</li>
+                        <li><strong>Security Implementation:</strong> Resolved critical SNYK security vulnerabilities and upgraded Bootstrap & jQuery versions, ensuring enterprise-grade security compliance</li>
+                        <li><strong>Performance Testing:</strong> Conducted comprehensive performance analysis and load testing, identifying and resolving bottlenecks for optimal application performance</li>
+                        <li><strong>Dependency Management:</strong> Proactively updated third-party libraries and dependencies to enhance security posture and maintain compatibility</li>
+                    </ul>
+                </div>
+
+                <!-- Cygnet Infotech -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">CYGNET INFOTECH PVT. LTD.</div>
+                        <div class="job-title">Web Designer</div>
+                        <div class="duration">November 2015 - July 2019 | DivideBuy, UK</div>
+                    </div>
+                    
+                    <div class="project-description">
+                        <strong>Project:</strong> DivideBuy - Innovative e-commerce payment solution platform enabling flexible payment options for online retailers across the UK.
+                    </div>
+
+                    <ul class="responsibilities">
+                        <li><strong>Web Design & Development:</strong> Designed and developed responsive landing pages and customer onboarding portals using HTML5, CSS3, JavaScript, and jQuery</li>
+                        <li><strong>Client Collaboration:</strong> Worked closely with UK-based clients throughout design and development phases, ensuring alignment with business requirements and user expectations</li>
+                        <li><strong>Website Modernization:</strong> Enhanced look, functionality, and user experience of existing websites through modern design patterns and progressive web technologies</li>
+                        <li><strong>E-commerce Integration:</strong> Built custom extensions and integrations for e-commerce platforms, enabling seamless payment processing and merchant onboarding</li>
+                        <li><strong>Responsive Design:</strong> Implemented mobile-first, cross-browser compatible interfaces ensuring optimal experience across all devices and screen sizes</li>
+                        <li><strong>Maintenance & Support:</strong> Provided ongoing maintenance and feature enhancements for multiple client websites, ensuring high uptime and rapid issue resolution</li>
+                        <li><strong>Version Control:</strong> Utilized Git for collaborative development, maintaining clean code history and facilitating team code reviews</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">BACHELOR OF COMMERCE</div>
+                    <div class="institution">N.C. Bodywala College, Ahmedabad</div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="section">
+                <h2 class="section-title">Key Achievements</h2>
+                <ul class="responsibilities">
+                    <li>Reduced application support tickets through proactive bug fixes and admin feature automation</li>
+                    <li>Improved application performance through optimization of frontend code and caching strategies</li>
+                    <li>Enhanced team productivity through AI-powered development tools and best practices</li>
+                    <li>Actively participated in AI workshops and training sessions, implementing learnings in daily development</li>
+                    <li>Maintained high code quality standards through rigorous code reviews and adherence to best practices</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadAsWord() {
+            // Create a clean copy for Word export
+            const header = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' 
+                      xmlns:w='urn:schemas-microsoft-com:office:word' 
+                      xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Krunal Shah - Resume</title>
+                    <style>
+                        body { font-family: Calibri, Arial, sans-serif; line-height: 1.6; }
+                        .header { background: #2c3e50; color: white; padding: 30px; text-align: center; }
+                        .header h1 { font-size: 32pt; margin-bottom: 10px; }
+                        .header .title { font-size: 14pt; }
+                        .contact-info { background: #34495e; color: white; padding: 15px; }
+                        .section-title { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 5px; margin: 20px 0 10px 0; }
+                        .skill-tag { background: #e8f4f8; padding: 4px 10px; margin: 2px; border-radius: 10px; display: inline-block; }
+                        .experience-item { margin-bottom: 20px; border-left: 3px solid #3498db; padding-left: 15px; }
+                        .company-name { font-weight: bold; font-size: 14pt; }
+                        .job-title { color: #3498db; font-weight: bold; }
+                        .responsibilities li { margin-bottom: 8px; }
+                    </style>
+                </head>
+                <body>
+            `;
+            
+            const footer = "</body></html>";
+            
+            // Get resume content without buttons
+            const resumeClone = document.querySelector('.resume-container').cloneNode(true);
+            const html = header + resumeClone.innerHTML + footer;
+            
+            const blob = new Blob(['\ufeff', html], {
+                type: 'application/msword'
+            });
+            
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Krunal_Shah_Frontend_Developer_Resume.doc';
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert('✅ Resume downloaded as Word document!\n\nNote: Open in Microsoft Word and use "Save As" to convert to .docx format if needed.');
+        }
+
+        // Keyboard shortcut for printing
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
+
