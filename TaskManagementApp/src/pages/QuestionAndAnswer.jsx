@@ -2087,14 +2087,27 @@ const ProtectedDashboard = withAuth(Dashboard);`}
                         <div className="alert alert-light border">
                             <h6 className="text-primary">🎯 What is Render Props Pattern?</h6>
                             <div className="alert alert-info">
-                                <p className="mb-0">
+                                <p className="mb-2">
                                     A technique where a component receives a <strong>function as a prop</strong> and calls that function to determine what to render.
+                                </p>
+                                <p className="mb-0">
+                                    <strong>Key Flow:</strong> Parent passes a function TO child → Child has the logic and data processing → Child CALLS the parent's function with the processed data → The parent's function decides how to render/display that data.
                                 </p>
                             </div>
                             
                             <div className="bg-warning bg-opacity-10 p-3 rounded mb-3">
                                 <strong>💡 Simple Definition:</strong><br/>
                                 Component doesn't decide what to render - <strong>YOU tell it via a function!</strong>
+                            </div>
+
+                            <div className="bg-primary bg-opacity-10 p-3 rounded mb-3">
+                                <strong>🔄 Data Flow:</strong>
+                                <ol className="mb-0 mt-2">
+                                    <li><strong>Parent</strong> → Passes render function to child</li>
+                                    <li><strong>Child</strong> → Processes data (logic)</li>
+                                    <li><strong>Child</strong> → Calls parent's function with processed data</li>
+                                    <li><strong>Parent's function</strong> → Returns JSX to render</li>
+                                </ol>
                             </div>
 
                             <h6 className="text-primary mt-4">🎯 Purpose:</h6>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 /**
  * 🎯 CONTROLLED COMPONENT VERSION - User Profile Manager
@@ -22,9 +22,14 @@ import React, { useState, useEffect } from "react";
  * □ STEP 9: Use React Fragments
  * □ STEP 10: Know class vs functional (theoretical)
  * STEP 11 : HOC (withLoading)
+ * SETP 12 : Render Props
  *
  * BUILD IT ALL BY YOURSELF! 💪
  */
+
+
+
+
 
 const UserProfileControlled = () => {
   const [user, setUser] = useState([]);
@@ -122,20 +127,13 @@ const UserProfileControlled = () => {
 
         {/* Users List */}
         <div style={{ marginTop: "20px" }}>
-          {filterDetails.length === 0 ? (
-            <p style={{ textAlign: "center", color: "#95a5a6", padding: "40px", fontSize: "16px" }}>
-              No users found. Add your first user! 🎉
-            </p>
-          ) : (
-            filterDetails.map((item) => (
-              <UserCardwithConfirmations
+        <MultipleFilteredList data={user} filterType={filterType} renderHeader={(count) => <h3>Total : {count}</h3>} renderItem={(item) => <UserCardwithConfirmations
                 key={item.id}
                 item={item}
                 onDelete={handleDelete}
                 onToggle={handleToggle}
-              />
-            ))
-          )}
+              />} renderEmpty = {() => <p>no user found</p>} >
+          </MultipleFilteredList>
         </div>
       </div>
     </>
@@ -194,13 +192,24 @@ const withConfirmation = (UserCardwithConfirmation) => {
     }
 }
 
-const FilteredList = ({ data, filterType, render}) => {
+
+
+const MultipleFilteredList = ({ data, filterType, renderHeader,renderItem, renderEmpty}) => {
   const filteredData = data.filter((item)=>{
     if(filterType === 'ALL') return true
     if(filterType === 'ACTIVE') return item.isActive === true;
     if(filterType === 'INACTIVE') return item.isActive === false;     
   })
-  return render(filteredData)
+   // 2. If empty, call renderEmpty
+  if(filteredData.length === 0) {
+    return renderEmpty()
+  }
+  return (
+    <div>
+      {renderHeader(filteredData.length)}
+      {filteredData.map(item => renderItem(item))}
+    </div>
+  )  
 }
 
 const UserCard = ({ item, onDelete, onToggle }) => {
