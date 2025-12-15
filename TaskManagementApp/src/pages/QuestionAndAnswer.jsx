@@ -11149,6 +11149,1178 @@ function App() {
                 </div>
             </div>
 
+            {/* Question 65: useRef Hook - Complete Guide */}
+            <div className="card border-start border-info border-4 mb-4 shadow-sm">
+                <div className="card-body">
+                    <h3 className="card-title text-info d-flex align-items-center gap-2">
+                        <span className="badge bg-info rounded-circle" style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>65</span>
+                        What is useRef Hook? Complete Guide ⭐⭐⭐⭐⭐
+                        <button className="btn btn-sm btn-outline-info ms-auto" onClick={() => toggleAnswer(65)}>
+                            {showAnswer[65] ? 'Hide Answer ▲' : 'Show Answer ▼'}
+                        </button>
+                    </h3>
+                    {showAnswer[65] && (
+                        <div className="mt-3">
+                            <div className="alert alert-info">
+                                <strong>📌 Simple Definition:</strong>
+                                <p className="mb-0">
+                                    <strong>useRef is a React hook that creates a persistent box to store values that don't cause re-renders.</strong>
+                                </p>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🎯 TWO Main Uses of useRef:</h5>
+                            
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="alert alert-success">
+                                        <h6 className="alert-heading">1️⃣ DOM Access</h6>
+                                        <p className="mb-0">Access and manipulate DOM elements directly</p>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="alert alert-primary">
+                                        <h6 className="alert-heading">2️⃣ Store Values</h6>
+                                        <p className="mb-0">Keep mutable values across renders (not related to DOM)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">📊 useRef vs useState Comparison:</h5>
+                            <div className="table-responsive">
+                                <table className="table table-bordered">
+                                    <thead className="table-dark">
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>useRef</th>
+                                            <th>useState</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Triggers Re-render?</strong></td>
+                                            <td>❌ No</td>
+                                            <td>✅ Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>How to Update?</strong></td>
+                                            <td>Direct mutation: <code>ref.current = value</code></td>
+                                            <td>Setter function: <code>setValue(newValue)</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Persists?</strong></td>
+                                            <td>✅ Yes (across renders)</td>
+                                            <td>✅ Yes (across renders)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>When Updates?</strong></td>
+                                            <td>Immediately (synchronous)</td>
+                                            <td>After render (asynchronous)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Use for UI?</strong></td>
+                                            <td>❌ No (won't update UI)</td>
+                                            <td>✅ Yes (updates UI)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Common Use</strong></td>
+                                            <td>DOM refs, timers, previous values</td>
+                                            <td>Form inputs, counters, toggles</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">1️⃣ USE CASE 1: DOM Access (Most Common)</h5>
+                            
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 1: Auto-focus Input</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`import { useRef, useEffect } from 'react';
+
+function SearchInput() {
+  const inputRef = useRef(null);  // Create ref
+
+  useEffect(() => {
+    inputRef.current.focus();  // Focus on mount
+  }, []);
+
+  return <input ref={inputRef} placeholder="Search..." />;
+}
+
+// When component mounts, input automatically gets focus! ✅`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 2: Scroll to Element</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function ScrollExample() {
+  const sectionRef = useRef(null);
+
+  const scrollToSection = () => {
+    sectionRef.current.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
+  return (
+    <>
+      <button onClick={scrollToSection}>
+        Scroll to Section
+      </button>
+      
+      {/* Lots of content... */}
+      
+      <div ref={sectionRef}>
+        <h2>Target Section</h2>
+      </div>
+    </>
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 3: Measure Element Size</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function MeasureBox() {
+  const boxRef = useRef(null);
+
+  const measureBox = () => {
+    const width = boxRef.current.offsetWidth;
+    const height = boxRef.current.offsetHeight;
+    console.log(\`Width: \${width}, Height: \${height}\`);
+  };
+
+  return (
+    <div>
+      <div ref={boxRef} style={{ width: '200px', height: '100px' }}>
+        Box Content
+      </div>
+      <button onClick={measureBox}>Measure</button>
+    </div>
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 4: Play/Pause Video</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function VideoPlayer() {
+  const videoRef = useRef(null);
+
+  const playVideo = () => {
+    videoRef.current.play();
+  };
+
+  const pauseVideo = () => {
+    videoRef.current.pause();
+  };
+
+  return (
+    <div>
+      <video ref={videoRef} src="video.mp4" />
+      <button onClick={playVideo}>Play</button>
+      <button onClick={pauseVideo}>Pause</button>
+    </div>
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">2️⃣ USE CASE 2: Store Mutable Values (Non-DOM)</h5>
+
+                            <div className="alert alert-warning">
+                                <strong>⚠️ Important:</strong> useRef is NOT just for DOM! It can store ANY value that needs to persist but shouldn't trigger re-renders.
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 1: Store Previous Value</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function Counter() {
+  const [count, setCount] = useState(0);
+  const prevCountRef = useRef();
+
+  useEffect(() => {
+    prevCountRef.current = count;  // Store previous value
+  }, [count]);
+
+  return (
+    <div>
+      <p>Current: {count}</p>
+      <p>Previous: {prevCountRef.current}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+// Output when count = 5:
+// Current: 5
+// Previous: 4`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 2: Store Timer ID</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function Timer() {
+  const [seconds, setSeconds] = useState(0);
+  const timerRef = useRef(null);  // Store interval ID
+
+  const startTimer = () => {
+    timerRef.current = setInterval(() => {
+      setSeconds(s => s + 1);
+    }, 1000);
+  };
+
+  const stopTimer = () => {
+    clearInterval(timerRef.current);  // Clear using stored ID
+  };
+
+  useEffect(() => {
+    return () => clearInterval(timerRef.current);  // Cleanup
+  }, []);
+
+  return (
+    <div>
+      <p>Seconds: {seconds}</p>
+      <button onClick={startTimer}>Start</button>
+      <button onClick={stopTimer}>Stop</button>
+    </div>
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 3: Track Render Count</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function RenderCounter() {
+  const [count, setCount] = useState(0);
+  const renderCount = useRef(0);
+
+  // Increment on every render
+  renderCount.current = renderCount.current + 1;
+
+  return (
+    <div>
+      <p>State: {count}</p>
+      <p>Component rendered: {renderCount.current} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Update State
+      </button>
+    </div>
+  );
+}
+
+// ✅ Tracking renders without causing infinite loop!`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 4: Store Latest Callback (Avoid Stale Closures)</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function SearchComponent() {
+  const [query, setQuery] = useState('');
+  const callbackRef = useRef();
+
+  // Update ref with latest callback
+  callbackRef.current = (searchTerm) => {
+    console.log('Searching for:', searchTerm);
+    // API call here
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      callbackRef.current(query);  // Always uses latest callback
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  return (
+    <input 
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
+  );
+}`}
+                                </pre>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🎯 When to Use useRef vs useState?</h5>
+                            
+                            <div className="table-responsive">
+                                <table className="table table-bordered">
+                                    <thead className="table-primary">
+                                        <tr>
+                                            <th>Scenario</th>
+                                            <th>Use This</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Need to access DOM element</td>
+                                            <td>✅ <strong>useRef</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Store timer/interval ID</td>
+                                            <td>✅ <strong>useRef</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Track previous value</td>
+                                            <td>✅ <strong>useRef</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Store mutable value (no re-render needed)</td>
+                                            <td>✅ <strong>useRef</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Value should update UI</td>
+                                            <td>✅ <strong>useState</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Form input values (controlled)</td>
+                                            <td>✅ <strong>useState</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Counter/toggle that shows on screen</td>
+                                            <td>✅ <strong>useState</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">⚠️ Common Mistakes with useRef:</h5>
+                            
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="card border-danger">
+                                        <div className="card-header bg-danger text-white">
+                                            <strong>❌ WRONG - Trying to Update UI</strong>
+                                        </div>
+                                        <div className="card-body">
+                                            <pre className="bg-dark text-white p-2 rounded mb-0 small">
+{`function Counter() {
+  const countRef = useRef(0);
+
+  const increment = () => {
+    countRef.current += 1;
+    console.log(countRef.current);
+  };
+
+  return (
+    <div>
+      <p>Count: {countRef.current}</p>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+}
+
+// ❌ UI won't update! 
+// Ref changes don't trigger re-renders`}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="card border-success">
+                                        <div className="card-header bg-success text-white">
+                                            <strong>✅ CORRECT - Use useState for UI</strong>
+                                        </div>
+                                        <div className="card-body">
+                                            <pre className="bg-dark text-white p-2 rounded mb-0 small">
+{`function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+}
+
+// ✅ UI updates correctly!
+// State changes trigger re-renders`}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🔥 Advanced useRef Patterns:</h5>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Pattern 1: Avoid Stale Closures in useEffect</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function ChatRoom({ roomId }) {
+  const [message, setMessage] = useState('');
+  const latestMessage = useRef(message);
+
+  // Always keep ref updated
+  useEffect(() => {
+    latestMessage.current = message;
+  }, [message]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Always use latest message (no stale closure!)
+      console.log('Latest message:', latestMessage.current);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);  // Empty deps, but always has latest message!
+
+  return <input value={message} onChange={(e) => setMessage(e.target.value)} />;
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Pattern 2: Track if Component is Mounted</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function DataFetcher() {
+  const [data, setData] = useState(null);
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/data');
+      const result = await response.json();
+      
+      // Only update state if component is still mounted
+      if (isMountedRef.current) {
+        setData(result);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMountedRef.current = false;  // Mark as unmounted
+    };
+  }, []);
+
+  return <div>{data ? data.title : 'Loading...'}</div>;
+}`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Pattern 3: Instance Variables (Like Class Properties)</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`function WebSocketComponent() {
+  const wsRef = useRef(null);
+
+  useEffect(() => {
+    // Store WebSocket instance
+    wsRef.current = new WebSocket('ws://localhost:8080');
+
+    wsRef.current.onmessage = (event) => {
+      console.log('Message:', event.data);
+    };
+
+    return () => {
+      wsRef.current?.close();  // Cleanup
+    };
+  }, []);
+
+  const sendMessage = (msg) => {
+    wsRef.current?.send(msg);  // Access stored instance
+  };
+
+  return <button onClick={() => sendMessage('Hello')}>Send</button>;
+}`}
+                                </pre>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🧪 Practice Questions:</h5>
+                            
+                            <div className="alert alert-warning">
+                                <strong>Q1: What's the output?</strong>
+                                <pre className="bg-dark text-white p-3 rounded mt-2">
+{`function App() {
+  const countRef = useRef(0);
+  const [, forceRender] = useState({});
+
+  const increment = () => {
+    countRef.current += 1;
+    console.log('Ref:', countRef.current);
+  };
+
+  return (
+    <div>
+      <p>Count: {countRef.current}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={() => forceRender({})}>Force Render</button>
+    </div>
+  );
+}`}
+                                </pre>
+                                <details>
+                                    <summary><strong>Click for Answer</strong></summary>
+                                    <div className="mt-2 p-2 bg-light rounded">
+                                        <strong>Behavior:</strong>
+                                        <ul>
+                                            <li>Click "Increment" → Console shows updated ref value, but UI doesn't update (no re-render)</li>
+                                            <li>Click "Force Render" → UI now shows the updated ref value</li>
+                                        </ul>
+                                        <strong>Key Point:</strong> Ref updates are immediate but don't trigger re-renders. You need something else to trigger a render to see the updated value.
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div className="alert alert-warning mt-3">
+                                <strong>Q2: Why use useRef instead of let variable?</strong>
+                                <pre className="bg-dark text-white p-3 rounded mt-2">
+{`function Timer() {
+  let count = 0;  // Regular variable
+  const countRef = useRef(0);  // Ref
+
+  const increment = () => {
+    count += 1;
+    countRef.current += 1;
+    console.log('let:', count, 'ref:', countRef.current);
+  };
+
+  return <button onClick={increment}>Increment</button>;
+}
+
+// What happens when you click 3 times?`}
+                                </pre>
+                                <details>
+                                    <summary><strong>Click for Answer</strong></summary>
+                                    <div className="mt-2 p-2 bg-light rounded">
+                                        <strong>Output:</strong>
+                                        <ul>
+                                            <li>Click 1: "let: 1 ref: 1"</li>
+                                            <li>Click 2: "let: 1 ref: 2" ← let resets to 0 on each render!</li>
+                                            <li>Click 3: "let: 1 ref: 3"</li>
+                                        </ul>
+                                        <strong>Reason:</strong> Regular variables reset on every render. useRef persists across renders!
+                                    </div>
+                                </details>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🎯 Common Interview Questions:</h5>
+                            <div className="table-responsive">
+                                <table className="table table-bordered table-hover">
+                                    <thead className="table-dark">
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Q: What is useRef?</strong></td>
+                                            <td>A hook that creates a persistent box (.current) to store values that don't cause re-renders when updated.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: Two main uses of useRef?</strong></td>
+                                            <td>1) DOM access (focus, scroll, measure) 2) Store mutable values (timers, previous values, instance variables)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: Does changing ref.current trigger re-render?</strong></td>
+                                            <td>❌ No! That's the key difference from useState.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: When does ref.current update?</strong></td>
+                                            <td>Immediately (synchronous), unlike setState which is asynchronous.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: Can you use useRef for form inputs?</strong></td>
+                                            <td>Yes (uncontrolled components), but useState is preferred for controlled components in React.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: useRef vs let variable?</strong></td>
+                                            <td>useRef persists across renders, regular variables reset on each render.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: What is ref.current?</strong></td>
+                                            <td>The .current property holds the actual value. You can read/write it directly.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: Can you mutate ref.current?</strong></td>
+                                            <td>✅ Yes! Unlike state, you can mutate it directly: <code>ref.current = newValue</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🔑 Key Points to Remember:</h5>
+                            <div className="alert alert-info">
+                                <ul className="mb-0">
+                                    <li>✅ <strong>Creates persistent storage</strong> across renders</li>
+                                    <li>✅ <strong>No re-render</strong> when value changes</li>
+                                    <li>✅ <strong>Two uses:</strong> DOM access & storing mutable values</li>
+                                    <li>✅ <strong>Access via .current property</strong></li>
+                                    <li>✅ <strong>Can mutate directly:</strong> <code>ref.current = value</code></li>
+                                    <li>✅ <strong>Updates immediately</strong> (synchronous)</li>
+                                    <li>✅ <strong>Persists across renders</strong> (unlike regular variables)</li>
+                                    <li>✅ <strong>Common uses:</strong> Focus input, store timers, track previous values, instance variables</li>
+                                </ul>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">💡 Quick Decision Chart:</h5>
+                            <div className="alert alert-success">
+                                <strong>Ask yourself:</strong>
+                                <ul className="mb-0 mt-2">
+                                    <li><strong>Does changing this value need to update the UI?</strong></li>
+                                    <li className="ms-4">→ Yes? Use <code>useState</code> ✅</li>
+                                    <li className="ms-4">→ No? Use <code>useRef</code> ✅</li>
+                                </ul>
+                            </div>
+
+                            <div className="alert alert-info mt-3">
+                                <strong>💡 Interview Tip:</strong> When asked about useRef:
+                                <ol className="mb-0 mt-2">
+                                    <li>Start with: "useRef creates a persistent box that doesn't trigger re-renders"</li>
+                                    <li>Mention two uses: "DOM access and storing mutable values"</li>
+                                    <li>Key difference: "Unlike useState, changing ref.current doesn't re-render"</li>
+                                    <li>Give example: Show focus input or store timer ID</li>
+                                    <li>Explain when to use: "Use useState for UI updates, useRef for everything else"</li>
+                                </ol>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {/* Question 64: Compound Components */}
+            <div className="card border-start border-success border-4 mb-4 shadow-sm">
+                <div className="card-body">
+                    <h3 className="card-title text-success d-flex align-items-center gap-2">
+                        <span className="badge bg-success rounded-circle" style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>64</span>
+                        What are Compound Components? ⭐⭐⭐⭐⭐
+                        <button className="btn btn-sm btn-outline-success ms-auto" onClick={() => toggleAnswer(64)}>
+                            {showAnswer[64] ? 'Hide Answer ▲' : 'Show Answer ▼'}
+                        </button>
+                    </h3>
+                    {showAnswer[64] && (
+                        <div className="mt-3">
+                            <div className="alert alert-success">
+                                <strong>📌 Simple Definition:</strong>
+                                <p className="mb-0">
+                                    <strong>Compound Components are components that work together to share state implicitly through Context API, without manual prop drilling.</strong>
+                                </p>
+                            </div>
+
+                            <div className="alert alert-info mt-3">
+                                <strong>💡 Think of it like HTML elements:</strong>
+                                <p className="mb-0">
+                                    Just like <code>&lt;select&gt;</code> and <code>&lt;option&gt;</code> work together, or <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, and <code>&lt;td&gt;</code> - they're separate components but work as a unit!
+                                </p>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🎯 The Problem Compound Components Solve:</h5>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="card border-danger">
+                                        <div className="card-header bg-danger text-white">
+                                            <strong>❌ Without Compound Components (Prop Drilling)</strong>
+                                        </div>
+                                        <div className="card-body">
+                                            <pre className="bg-dark text-white p-2 rounded mb-0 small">
+{`<Tabs 
+  activeTab={activeTab}
+  onTabChange={setActiveTab}
+>
+  <TabList 
+    activeTab={activeTab}
+    onTabChange={setActiveTab}
+  >
+    <Tab 
+      id="1" 
+      activeTab={activeTab}
+      onTabChange={setActiveTab}
+    >
+      Tab 1
+    </Tab>
+  </TabList>
+</Tabs>
+
+// 😫 Pass same props everywhere!`}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="card border-success">
+                                        <div className="card-header bg-success text-white">
+                                            <strong>✅ With Compound Components (Clean!)</strong>
+                                        </div>
+                                        <div className="card-body">
+                                            <pre className="bg-dark text-white p-2 rounded mb-0 small">
+{`<Tabs>
+  <TabList>
+    <Tab id="1">Tab 1</Tab>
+    <Tab id="2">Tab 2</Tab>
+    <Tab id="3">Tab 3</Tab>
+  </TabList>
+  <TabPanel id="1">Content 1</TabPanel>
+  <TabPanel id="2">Content 2</TabPanel>
+  <TabPanel id="3">Content 3</TabPanel>
+</Tabs>
+
+// ✅ No prop drilling!
+// State shared via Context API`}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🔨 How to Implement Compound Components:</h5>
+                            
+                            <h6 className="text-primary mt-3">Step 1: Create Context</h6>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`import { createContext, useContext, useState } from 'react';
+
+// Create Context for sharing state
+const TabsContext = createContext();
+
+// Custom hook for accessing context
+function useTabs() {
+  const context = useContext(TabsContext);
+  if (!context) {
+    throw new Error('Tab components must be used within <Tabs>');
+  }
+  return context;
+}`}
+                            </pre>
+
+                            <h6 className="text-primary mt-3">Step 2: Create Parent Component (Provider)</h6>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`// Main Tabs component (provides context)
+function Tabs({ children }) {
+  const [activeTab, setActiveTab] = useState('1');
+
+  return (
+    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
+      <div className="tabs">
+        {children}
+      </div>
+    </TabsContext.Provider>
+  );
+}`}
+                            </pre>
+
+                            <h6 className="text-primary mt-3">Step 3: Create Child Components (Consumers)</h6>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`// TabList component
+function TabList({ children }) {
+  return <div className="tab-list">{children}</div>;
+}
+
+// Tab component (consumes context)
+function Tab({ id, children }) {
+  const { activeTab, setActiveTab } = useTabs(); // Access shared state!
+
+  return (
+    <button 
+      onClick={() => setActiveTab(id)}
+      className={activeTab === id ? 'active' : ''}
+    >
+      {children}
+    </button>
+  );
+}
+
+// TabPanel component (consumes context)
+function TabPanel({ id, children }) {
+  const { activeTab } = useTabs(); // Access shared state!
+
+  if (activeTab !== id) return null;
+
+  return <div className="tab-panel">{children}</div>;
+}`}
+                            </pre>
+
+                            <h6 className="text-primary mt-3">Step 4: Attach Sub-components to Parent</h6>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`// Export as compound component
+Tabs.TabList = TabList;
+Tabs.Tab = Tab;
+Tabs.TabPanel = TabPanel;
+
+export default Tabs;`}
+                            </pre>
+
+                            <h6 className="text-primary mt-3">Step 5: Usage</h6>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`import Tabs from './Tabs';
+
+function App() {
+  return (
+    <Tabs>
+      <Tabs.TabList>
+        <Tabs.Tab id="1">Home</Tabs.Tab>
+        <Tabs.Tab id="2">Profile</Tabs.Tab>
+        <Tabs.Tab id="3">Settings</Tabs.Tab>
+      </Tabs.TabList>
+
+      <Tabs.TabPanel id="1">
+        <h2>Home Content</h2>
+      </Tabs.TabPanel>
+      
+      <Tabs.TabPanel id="2">
+        <h2>Profile Content</h2>
+      </Tabs.TabPanel>
+      
+      <Tabs.TabPanel id="3">
+        <h2>Settings Content</h2>
+      </Tabs.TabPanel>
+    </Tabs>
+  );
+}`}
+                            </pre>
+
+                            <h5 className="text-secondary mt-4">🌟 Real-World Examples:</h5>
+                            
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 1: Accordion Component</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`<Accordion>
+  <Accordion.Item id="1">
+    <Accordion.Header>What is React?</Accordion.Header>
+    <Accordion.Content>React is a JavaScript library...</Accordion.Content>
+  </Accordion.Item>
+  
+  <Accordion.Item id="2">
+    <Accordion.Header>What is TypeScript?</Accordion.Header>
+    <Accordion.Content>TypeScript is JavaScript with types...</Accordion.Content>
+  </Accordion.Item>
+</Accordion>
+
+// All items share state through Context!`}
+                                </pre>
+                            </div>
+
+                            <div className="alert alert-light">
+                                <h6 className="text-primary">Example 2: Modal Component</h6>
+                                <pre className="bg-dark text-white p-3 rounded">
+{`<Modal>
+  <Modal.Trigger>
+    <button>Open Modal</button>
+  </Modal.Trigger>
+  
+  <Modal.Content>
+    <Modal.Header>
+      <h2>Modal Title</h2>
+      <Modal.CloseButton />
+    </Modal.Header>
+    
+    <Modal.Body>
+      <p>Modal content here...</p>
+    </Modal.Body>
+    
+    <Modal.Footer>
+      <button>Save</button>
+      <button>Cancel</button>
+    </Modal.Footer>
+  </Modal.Content>
+</Modal>
+
+// All parts share 'isOpen' state!`}
+                                </pre>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">✅ Benefits of Compound Components:</h5>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="alert alert-success">
+                                        <h6>Developer Experience:</h6>
+                                        <ul className="mb-0 small">
+                                            <li>✅ No prop drilling</li>
+                                            <li>✅ Clean, readable API</li>
+                                            <li>✅ Flexible composition</li>
+                                            <li>✅ Self-documenting code</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="alert alert-info">
+                                        <h6>Code Quality:</h6>
+                                        <ul className="mb-0 small">
+                                            <li>✅ Implicit state sharing</li>
+                                            <li>✅ Loose coupling</li>
+                                            <li>✅ Easy to extend</li>
+                                            <li>✅ Component library pattern</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🆚 Compound Components vs Regular Components:</h5>
+                            <div className="table-responsive">
+                                <table className="table table-bordered">
+                                    <thead className="table-dark">
+                                        <tr>
+                                            <th>Aspect</th>
+                                            <th>Regular Components</th>
+                                            <th>Compound Components</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>State Sharing</strong></td>
+                                            <td>Via props (explicit)</td>
+                                            <td>Via Context (implicit)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Prop Drilling</strong></td>
+                                            <td>Required for deep nesting</td>
+                                            <td>Not needed</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Flexibility</strong></td>
+                                            <td>Fixed structure</td>
+                                            <td>Flexible composition</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>API Complexity</strong></td>
+                                            <td>Many props to pass</td>
+                                            <td>Clean, minimal API</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Use Case</strong></td>
+                                            <td>Simple components</td>
+                                            <td>Component libraries, complex UI</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🔥 Complete Working Example:</h5>
+                            <pre className="bg-dark text-white p-3 rounded">
+{`import { createContext, useContext, useState } from 'react';
+
+// 1. Create Context
+const AccordionContext = createContext();
+
+// 2. Parent Component
+function Accordion({ children }) {
+  const [openItem, setOpenItem] = useState(null);
+
+  const toggle = (id) => {
+    setOpenItem(openItem === id ? null : id);
+  };
+
+  return (
+    <AccordionContext.Provider value={{ openItem, toggle }}>
+      <div className="accordion">
+        {children}
+      </div>
+    </AccordionContext.Provider>
+  );
+}
+
+// 3. Child Components
+function AccordionItem({ id, children }) {
+  return <div className="accordion-item">{children}</div>;
+}
+
+function AccordionHeader({ id, children }) {
+  const { openItem, toggle } = useContext(AccordionContext);
+  
+  return (
+    <button 
+      onClick={() => toggle(id)}
+      className="accordion-header"
+    >
+      {children}
+      <span>{openItem === id ? '▲' : '▼'}</span>
+    </button>
+  );
+}
+
+function AccordionContent({ id, children }) {
+  const { openItem } = useContext(AccordionContext);
+  
+  if (openItem !== id) return null;
+  
+  return <div className="accordion-content">{children}</div>;
+}
+
+// 4. Attach sub-components
+Accordion.Item = AccordionItem;
+Accordion.Header = AccordionHeader;
+Accordion.Content = AccordionContent;
+
+// 5. Usage
+function App() {
+  return (
+    <Accordion>
+      <Accordion.Item id="1">
+        <Accordion.Header id="1">What is React?</Accordion.Header>
+        <Accordion.Content id="1">
+          React is a JavaScript library for building UIs.
+        </Accordion.Content>
+      </Accordion.Item>
+
+      <Accordion.Item id="2">
+        <Accordion.Header id="2">What is Context?</Accordion.Header>
+        <Accordion.Content id="2">
+          Context provides a way to pass data through components.
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
+  );
+}`}
+                            </pre>
+
+                            <h5 className="text-secondary mt-4">🎯 Common Interview Questions:</h5>
+                            <div className="table-responsive">
+                                <table className="table table-bordered table-hover">
+                                    <thead className="table-dark">
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Q: What are Compound Components?</strong></td>
+                                            <td>Multiple components that work together as a single unit, sharing state implicitly through Context API.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: How do they share state?</strong></td>
+                                            <td>Through Context API - parent provides context, children consume it without prop drilling.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: When to use Compound Components?</strong></td>
+                                            <td>Building component libraries (Tabs, Accordion, Dropdown), when you need flexible composition, or to avoid prop drilling.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: Give real-world examples?</strong></td>
+                                            <td>HTML's &lt;select&gt; + &lt;option&gt;, React libraries like Reach UI, Headless UI, Radix UI.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: What's the key advantage?</strong></td>
+                                            <td>Clean API (no prop drilling) + Flexible composition (can rearrange parts).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Q: How to attach sub-components?</strong></td>
+                                            <td><code>Parent.Child = ChildComponent;</code> - makes them accessible as <code>&lt;Parent.Child /&gt;</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">⚡ Popular Libraries Using Compound Components:</h5>
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <div className="alert alert-primary">
+                                        <strong>Reach UI:</strong>
+                                        <pre className="small mb-0">
+{`<Menu>
+  <MenuButton />
+  <MenuList>
+    <MenuItem />
+  </MenuList>
+</Menu>`}
+                                        </pre>
+                                    </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="alert alert-success">
+                                        <strong>Headless UI:</strong>
+                                        <pre className="small mb-0">
+{`<Disclosure>
+  <Disclosure.Button />
+  <Disclosure.Panel />
+</Disclosure>`}
+                                        </pre>
+                                    </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="alert alert-warning">
+                                        <strong>Radix UI:</strong>
+                                        <pre className="small mb-0">
+{`<DropdownMenu>
+  <DropdownMenu.Trigger />
+  <DropdownMenu.Content />
+</DropdownMenu>`}
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🧪 Practice Questions:</h5>
+                            <div className="alert alert-warning">
+                                <strong>Q1: What happens if you use Tab outside Tabs?</strong>
+                                <pre className="bg-dark text-white p-3 rounded mt-2">
+{`function App() {
+  return <Tabs.Tab id="1">Tab 1</Tabs.Tab>;  // No <Tabs> wrapper!
+}`}
+                                </pre>
+                                <details>
+                                    <summary><strong>Click for Answer</strong></summary>
+                                    <div className="mt-2 p-2 bg-light rounded">
+                                        <strong>Result:</strong> ❌ Error!
+                                        <br/><strong>Reason:</strong> Tab tries to access TabsContext which is only provided by Tabs component. Without the provider, context is undefined.
+                                        <br/><strong>Error Message:</strong> "Tab components must be used within &lt;Tabs&gt;"
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div className="alert alert-warning mt-3">
+                                <strong>Q2: Can you rearrange the order of sub-components?</strong>
+                                <pre className="bg-dark text-white p-3 rounded mt-2">
+{`<Tabs>
+  <Tabs.TabPanel id="1">Content 1</Tabs.TabPanel>
+  <Tabs.TabList>
+    <Tabs.Tab id="1">Tab 1</Tabs.Tab>
+  </Tabs.TabList>
+</Tabs>`}
+                                </pre>
+                                <details>
+                                    <summary><strong>Click for Answer</strong></summary>
+                                    <div className="mt-2 p-2 bg-light rounded">
+                                        <strong>Answer:</strong> ✅ Yes, it works!
+                                        <br/><strong>Reason:</strong> Because they share state through Context, the order doesn't matter. This is one of the key benefits of Compound Components - flexible composition!
+                                    </div>
+                                </details>
+                            </div>
+
+                            <h5 className="text-secondary mt-4">🔑 Key Points to Remember:</h5>
+                            <div className="alert alert-info">
+                                <ul className="mb-0">
+                                    <li>✅ <strong>Multiple components working as one unit</strong></li>
+                                    <li>✅ <strong>Share state via Context API</strong> (implicit, not explicit props)</li>
+                                    <li>✅ <strong>No prop drilling</strong> - child components access context directly</li>
+                                    <li>✅ <strong>Flexible composition</strong> - can rearrange sub-components</li>
+                                    <li>✅ <strong>Clean API</strong> - self-explanatory usage</li>
+                                    <li>✅ <strong>Pattern used by:</strong> Component libraries (Reach UI, Headless UI, Radix UI)</li>
+                                    <li>✅ <strong>Implementation:</strong> Context + Provider + Consumers + Attached sub-components</li>
+                                    <li>✅ <strong>Real examples:</strong> Tabs, Accordion, Dropdown, Modal, Menu</li>
+                                </ul>
+                            </div>
+
+                            <div className="alert alert-success mt-3">
+                                <strong>💡 Interview Tip:</strong> When asked about Compound Components:
+                                <ol className="mb-0 mt-2">
+                                    <li>Start with: "Multiple components working together as a unit, sharing state via Context"</li>
+                                    <li>Give analogy: "Like HTML's &lt;select&gt; and &lt;option&gt; - they work together"</li>
+                                    <li>Explain benefit: "No prop drilling, clean API, flexible composition"</li>
+                                    <li>Show example: Simple Tabs or Accordion implementation</li>
+                                    <li>Mention real libraries: "Used by Reach UI, Headless UI, Radix UI"</li>
+                                </ol>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+
         </div>
     )
 

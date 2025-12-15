@@ -1,115 +1,43 @@
-// 📝 EXERCISE 4: Closures & Scope
-// Time: 20 minutes
+// Explain call, bind & apply
 
-console.log('===== EXERCISE 4: Closures =====');
+// Imagine you're a famous Movie Director (a function), but you need different actors to perform scenes.
+// The actors change, but the direction stays the same. That's where call, apply, and bind come in — your casting directors!
 
-// TODO 1: Create a counter function that remembers count
-// Should return an object with increment() and getCount() methods
-const createCounter = () => {
-    // YOUR CODE HERE
-    // let count = 0;
-    // return {
-    //     increment: () => { count++; },
-    //     getCount: () => count
-    // };
-};
-
-// TODO 2: Create a function with private variable
-// Only accessible through getName() and setName()
-const createUser = (initialName) => {
-    // YOUR CODE HERE
-    // let name = initialName;
-    // return {
-    //     getName: () => name,
-    //     setName: (newName) => { name = newName; }
-    // };
-};
-
-// TODO 3: Create a function that generates unique IDs
-// Each call should return a new incremented ID
-const createIdGenerator = () => {
-    // YOUR CODE HERE
-    // let id = 0;
-    // return () => ++id;
-};
-
-// TODO 4: Create a calculator with memory
-// Should remember last result
-const createCalculator = () => {
-    // YOUR CODE HERE
-    // let memory = 0;
-    // return {
-    //     add: (n) => { memory += n; return memory; },
-    //     subtract: (n) => { memory -= n; return memory; },
-    //     getMemory: () => memory,
-    //     clear: () => { memory = 0; }
-    // };
-};
-
-
-// Function to display results
-function runExercise4() {
-    const output = document.getElementById('output4');
-    
-    try {
-        // Test 1: Counter
-        console.log('Test 1: Counter');
-        const counter = createCounter();
-        counter?.increment();
-        counter?.increment();
-        counter?.increment();
-        const count = counter?.getCount();
-        console.log('Count after 3 increments:', count);
-        
-        // Test 2: User
-        console.log('Test 2: User');
-        const user = createUser('John');
-        const originalName = user?.getName();
-        user?.setName('Jane');
-        const newName = user?.getName();
-        console.log('Original name:', originalName, 'New name:', newName);
-        
-        // Test 3: ID Generator
-        console.log('Test 3: ID Generator');
-        const generateId = createIdGenerator();
-        const id1 = generateId?.();
-        const id2 = generateId?.();
-        const id3 = generateId?.();
-        console.log('IDs:', id1, id2, id3);
-        
-        // Test 4: Calculator
-        console.log('Test 4: Calculator');
-        const calc = createCalculator();
-        calc?.add(10);
-        calc?.add(5);
-        calc?.subtract(3);
-        const result = calc?.getMemory();
-        console.log('Calculator result:', result);
-        
-        output.innerHTML = `
-<strong>📊 Results:</strong>
-
-1. Counter after 3 increments: ${count || 'Not implemented'}
-
-2. User name change: "${originalName}" → "${newName}"
-
-3. Generated IDs: ${id1}, ${id2}, ${id3}
-
-4. Calculator (10+5-3): ${result || 'Not implemented'}
-
-✅ Check console (F12) for more details!
-
-<strong>🎯 Key Concept:</strong> Closures allow inner functions to access outer function's variables even after the outer function has returned!
-        `;
-    } catch (error) {
-        output.innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
-        console.error('Exercise 4 error:', error);
-    }
+function Director(scenes){
+    console.log( this.Actor + ' can ' + scenes )
 }
 
-// 💡 HINTS:
-// Closure: function outer() { let x = 0; return function inner() { return x; } }
-// Private variable: Variables declared in outer function are private to inner functions
-// Each call to createCounter() creates a NEW independent closure with its own count
+const actor1 = {Actor : 'john'}
+const actor2 = {Actor : 'bob'}
+const actor3 = {Actor : 'lina'}
+const actor4 = {Actor : 'Mohan'}
+
+const canDo = ['dance scenes','fight scenes','acting scenes']
+
+Director.call(actor1,'sing scenes')
+Director.call(actor2,'fishing scenes')
+Director.apply(actor3,[canDo])
+const x = Director.bind(actor4,'do everything but he dont have dates')
+x();
+
+
+
+function CompanyCeo(decision){
+   console.log(this.name + ' have this role : ' + this.role + ' make decision: ' + decision)      
+}
+
+const authorizePerson1 = {name : 'john', role : 'assistant manager'}
+const authorizePerson2 = {name : 'Mohan', role : 'executive manager'}
+const authorizePerson3 = {name : 'Bob' , role: 'general manager'}
+const authorizePerson4 = {name: 'lina' , role: 'security'}
+
+const canDecide = ['hire','fire','assetBying','salaryManagement']
+
+
+CompanyCeo.call(authorizePerson1,'approve budget')
+CompanyCeo.call(authorizePerson2,'hire new staff')
+CompanyCeo.apply(authorizePerson3,[canDecide])
+const s = CompanyCeo.bind(authorizePerson4,'open & close office')
+s();
 
 

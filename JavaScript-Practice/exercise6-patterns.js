@@ -1,124 +1,249 @@
-// 📝 EXERCISE 6: Common Interview Patterns
-// Time: 15 minutes
-
-console.log('===== EXERCISE 6: Common Patterns =====');
-
-// TODO 1: Remove duplicates from array
-const nums = [1, 2, 2, 3, 4, 4, 5, 1, 3];
-
-// Method 1: Using Set
-const uniqueWithSet = null; // YOUR CODE HERE: [...new Set(nums)]
-
-// Method 2: Using filter
-const uniqueWithFilter = null; // YOUR CODE HERE: nums.filter((item, index) => nums.indexOf(item) === index)
+// Exercise 1/9: Reverse String
+const reverseSting = () => {
+    const name = 'johnny'
+    let result = '';
+    for(let i=0; i<name.length; i++){
+        result = name[i] + result
+    }
+    return result
+}
+reverseSting()
 
 
-// TODO 2: Group array of objects by property
-const products = [
-  { name: 'Laptop', category: 'electronics', price: 50000 },
-  { name: 'Phone', category: 'electronics', price: 30000 },
-  { name: 'Shirt', category: 'clothing', price: 500 },
-  { name: 'Jeans', category: 'clothing', price: 1200 }
-];
+// Exercise 2/9: Palindrome Check
+const PalindromeC = () => {
+    const name = 'johnhojx'
+    let reverseName  = ''
 
-// Expected output: { electronics: [...], clothing: [...] }
-const groupedByCategory = null; // YOUR CODE HERE: use reduce
-
-
-// TODO 3: Flatten nested array
-const nested = [1, [2, 3], [4, [5, 6]], 7];
-
-// Method 1: Using flat()
-const flatWithFlat = null; // YOUR CODE HERE: nested.flat(depth)
-
-// Method 2: Using reduce (more complex but good to know)
-const flatWithReduce = null; // YOUR CODE HERE
+    for(let i = 0; i<name.length; i++){
+        reverseName = name[i] + reverseName
+    }
+    if(name === reverseName) return `Palindrome`
+    else{ return `Not Palindrome`}
+}
+PalindromeC()
 
 
-// TODO 4: Find max and min in array
-const numbers = [45, 12, 89, 23, 67, 34];
+// Exercise 3/9: Find Duplicates
+const findDuplicate = () => {
+    const array = [1,55,52,55,220,21,32,220]
+    const obj = {}
+    const duplicateArray = []
 
-// Using Math.max and spread
-const maxNumber = null; // YOUR CODE HERE: Math.max(...numbers)
-const minNumber = null; // YOUR CODE HERE: Math.min(...numbers)
+    for(let i=0; i<array.length;i++){
+       let num =  array[i]
+       if(obj[num]){
+        obj[num] = obj[num] + 1
+       }else{
+        obj[num] = 1
+       }
+    }
+    for(let key in obj){
+        if(obj[key] > 1){
+            duplicateArray.push(Number(key))
+        }
+    }
+    console.log(duplicateArray)
+}
+findDuplicate()
 
-
-// TODO 5: Check if array contains all elements from another array
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [2, 4];
-
-// Check if arr1 contains all elements of arr2
-const containsAll = null; // YOUR CODE HERE: arr2.every(item => arr1.includes(item))
-
-
-// TODO 6: Sort array of objects by property
-const users = [
-  { name: 'John', age: 25 },
-  { name: 'Jane', age: 30 },
-  { name: 'Bob', age: 20 }
-];
-
-// Sort by age (ascending)
-const sortedByAge = null; // YOUR CODE HERE: users.sort((a, b) => a.age - b.age)
-
-
-// Function to display results
-function runExercise6() {
-    const output = document.getElementById('output6');
-    
-    try {
-        console.log('1. Remove duplicates:');
-        console.log('  With Set:', uniqueWithSet);
-        console.log('  With Filter:', uniqueWithFilter);
-        
-        console.log('2. Group by category:', groupedByCategory);
-        
-        console.log('3. Flatten array:');
-        console.log('  With flat():', flatWithFlat);
-        console.log('  With reduce:', flatWithReduce);
-        
-        console.log('4. Max and Min:', { max: maxNumber, min: minNumber });
-        
-        console.log('5. Contains all:', containsAll);
-        
-        console.log('6. Sorted by age:', sortedByAge);
-        
-        output.innerHTML = `
-<strong>📊 Results:</strong>
-
-1. Unique numbers:
-   • Set: ${JSON.stringify(uniqueWithSet)}
-   • Filter: ${JSON.stringify(uniqueWithFilter)}
-
-2. Grouped by category:
-   ${JSON.stringify(groupedByCategory, null, 2)}
-
-3. Flattened array:
-   • flat(): ${JSON.stringify(flatWithFlat)}
-   • reduce: ${JSON.stringify(flatWithReduce)}
-
-4. Max: ${maxNumber}, Min: ${minNumber}
-
-5. arr1 contains all of arr2: ${containsAll}
-
-6. Sorted by age: ${JSON.stringify(sortedByAge)}
-
-✅ Check console (F12) for formatted output!
-
-<strong>🎯 These patterns appear in 80% of interviews!</strong>
-        `;
-    } catch (error) {
-        output.innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
-        console.error('Exercise 6 error:', error);
+// Exercise 4/9: Count Character Occurrences
+const CoountString = () => { 
+    const name = 'Hello'
+    const obj = {}
+    for(let i=0; i<name.length; i++){
+       let test = name[i]
+       if(obj[test]){
+        obj[test] = obj[test] + 1
+       }else{
+        obj[test] = 1
+       }        
+    }
+    return obj
+}
+CoountString();
+// Output: { h: 1, e: 1, l: 2, o: 1 }
+// Exercise 5/9: FizzBuzz
+const fizz = () => {
+    for(let i=1; i<=100; i++){
+        if(i%3===0 && i%5===0){
+            console.log('fizzBuzz')
+        }else if(i%3 === 0){
+            console.log('fizz')
+        }else if(i%5 === 0){
+            console.log('buzz')
+        }else{
+            console.log(i)
+        }
     }
 }
+fizz();
 
-// 💡 HINTS:
-// Remove duplicates: [...new Set(array)] or filter with indexOf
-// Group by: reduce with object accumulator
-// Flatten: array.flat(Infinity) or recursive reduce
-// Max/Min: Math.max(...array)
-// Contains all: array2.every(item => array1.includes(item))
-// Sort: array.sort((a, b) => a.property - b.property)
+// Exercise 6/9: Find Min/Max
+const FindMinMAX = () => {
+    const array = [1,2,66,52,20,88,25,23]
+    let min = array[0]
+    let max = array[0]
+    
+    for(let i=0; i<array.length; i++){
+       if(array[i] > max) {
+          max = array[i] 
+       }
+       if(array[i] < min){
+        min = array[i]
+       }
+    }
+    return {min , max}
+}
+FindMinMAX();
 
+// second highest number 
+const array = [4,5,2,22,3,63,65,22]
+const secondHeigh = (array) => {
+    const unique = [...new Set(array)]
+    const num = unique.sort((a,b)=> b-a)
+    return num[1]
+}
+secondHeigh(array)
+
+// Exercise 7/9: Flatten Array
+const flaternsArray = () => {
+    const array = [1, [2, 3], [4, [5, 6]]]
+    const flate = array.flat()
+    console.log(flate)
+}
+flaternsArray()
+
+// Exercise 8/9: Anagram Check
+const  Anagram = (str1,str2) => {   
+    const objstr1 = {}
+    const objstr2 = {}
+    if(str1.length !== str2.length){return false}
+    for(let i = 0; i<str1.length; i++){
+        let text = str1[i]
+        if(objstr1[text]){
+            objstr1[text] = objstr1[text] + 1
+        }else{
+            objstr1[text] = 1
+        }
+    }
+   
+    for(let i = 0;i<str2.length;i++){
+        let text = str2[i]
+        if(objstr2[text]){
+            objstr2[text] = objstr2[text] + 1
+        }else{
+            objstr2[text] = 1
+        }
+    }
+
+    for(let key in objstr1){
+        if(objstr1[key] !== objstr2[key]){
+            return false
+        }
+    }
+    return true
+    
+
+}
+Anagram('listen','silent')
+
+
+// Exercise 9/9: Two Sum
+const twoSum = (array,target) => {    
+    for(let i=0;i<array.length; i++){
+        for(let j=0;j<array.length;j++){
+            if(i !== j){
+                if(array[i] + array[j] === target) return [i,j]
+            }
+        }
+    }
+}
+twoSum([1,25,22,32],47)
+
+
+
+const removeDuplicates = (array) => {
+    const Barray = []
+    const bobj = {}
+
+    for(let i=0;i<array.length;i++){
+        let num = array[i]
+        if(!bobj[num]){
+            Barray.push(num)
+            bobj[num] = true
+        }
+    }
+    return Barray
+}
+removeDuplicates([1,2,3,5,33,6,2,1,5])
+// removeDuplicates 10
+
+const Factorial = (n) => {
+    if(n === 0 || n === 1){
+        return 1
+    }
+    let result = 1;
+    for(let i=2; i<=n; i++){
+        result = result * i
+    }
+    return result
+}
+Factorial(5)
+// Factorial
+
+const RemoveSecond = () => {
+    const array = [5,3,9,6,4]
+    const blank = []
+    for(let i=0; i<array.length; i++){
+        if(i !== 2){
+            blank.push(array[i])
+        }
+    }
+    return blank
+}
+RemoveSecond()
+// RemoveSecond
+
+const ReverseArray = () => {
+    const array = [5,4,6,3,8,9]
+    const blankArray = []
+    for(let i = array.length-1; i>=0; i--){
+       blankArray.push(array[i])
+    }
+    return blankArray
+
+}
+ReverseArray();
+// ReverseArray
+
+const transformEach = () =>{
+    const array = [5,4,6,3,8,9]
+    const doubleArray = []
+
+    for(let i = 0; i<array.length; i++){
+        let num =array[i]
+        doubleArray.push(num * 2) 
+    }
+    return doubleArray
+
+}
+transformEach()
+// TransformEachElement
+const flate = (arr) => {
+   let result = []
+    for(let i=0; i<arr.length; i++){
+        if(Array.isArray(arr[i])){
+            let nested = flate(arr[i])
+            for(let j=0; j<nested.length; j++){
+                result[result.length] = nested[j]
+            }
+        }else{
+            result[result.length] = arr[i]
+        }
+    }
+    return result
+}
+const arrs =  [1,2,3,[5,[5,56,8,[8,8]]]]
+flate(arrs);
 

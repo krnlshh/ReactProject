@@ -21,9 +21,10 @@ import React, { useState, useEffect, createContext } from "react";
  * □ STEP 8: Create UserCard child component
  * □ STEP 9: Use React Fragments
  * □ STEP 10: Know class vs functional (theoretical)
- * STEP 11 : HOC (withLoading)
- * SETP 12 : Render Props
- *
+ * □ STEP 11 : HOC (withLoading,withToggle,withConfirmation,withHighlight)
+ * □ STEP 12 : Render Props
+ * □ STEP 13 : Component Composition
+ * □ STEP 14 : Compound Components  	
  * BUILD IT ALL BY YOURSELF! 💪
  */
 

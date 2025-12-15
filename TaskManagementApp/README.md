@@ -1,494 +1,3 @@
-# 🎯 Task Management System
-
-A comprehensive **Collaborative Task Management Application** built with React 19 to master every React concept through hands-on practice.
-
----
-
-## 📋 Project Overview
-
-This is a real-world task management system where teams can create, update, and manage tasks collaboratively. Perfect for learning React, building portfolio projects, and interview preparation.
-
----
-
-## 🚀 Complete User Workflow
-
-### **📱 PHASE 1: Landing & Authentication**
-
-#### **Step 1: User Arrives**
-- Lands on **Home/Landing Page**
-- Sees:
-  - App name and tagline
-  - Brief description of features
-  - "Login" and "Register" buttons
-  - Screenshots/demo
-
-#### **Step 2: Registration (New User)**
-- Clicks "Register"
-- Fills form:
-  - Name
-  - Email
-  - Password
-  - (Optional) Avatar upload or default avatar
-- Submits → Account created
-- Redirected to Login or directly to Dashboard
-
-#### **Step 3: Login (Existing User)**
-- Clicks "Login"
-- Enters:
-  - Email
-  - Password
-- Submits → Authenticated
-- Redirected to **Dashboard**
-
----
-
-### **🏠 PHASE 2: Main Dashboard (After Login)**
-
-#### **What User Sees:**
-
-**Navbar** at top:
-- Logo/App name
-- Dashboard link
-- User profile (avatar + name)
-- Theme toggle (dark/light)
-- Logout button
-
-**Statistics Section:**
-- Total tasks: 25
-- Completed: 10 (40%)
-- In Progress: 8
-- Pending: 7
-- Progress bar showing completion %
-
-**Search & Filter Bar:**
-- Search by task title
-- Filter by:
-  - Status (All, To Do, In Progress, Completed)
-  - Priority (All, High, Medium, Low)
-  - Assigned user
-  - Date range
-- Sort by:
-  - Date (newest/oldest)
-  - Priority (high to low / low to high)
-  - Alphabetical (A-Z / Z-A)
-
-**Task Board (3 Columns):**
-```
-┌─────────────┬─────────────┬─────────────┐
-│   TO DO     │ IN PROGRESS │  COMPLETED  │
-│   (7 tasks) │   (8 tasks) │  (10 tasks) │
-└─────────────┴─────────────┴─────────────┘
-```
-
-**"+ Add New Task" Button** (floating or top-right)
-
----
-
-### **📝 PHASE 3: Creating a Task**
-
-**User Clicks "Add New Task":**
-- Modal or form appears
-- User fills:
-  - **Task Title** (required)
-  - **Description** (optional)
-  - **Priority**: High / Medium / Low
-  - **Status**: To Do / In Progress / Completed
-  - **Assign To**: Select from user list
-  - **Deadline**: Date picker
-- Clicks "Save"
-- Task appears in appropriate column
-- Success message: "Task created successfully!"
-- Modal closes
-
----
-
-### **👁️ PHASE 4: Viewing Task Details**
-
-**User Clicks on a Task Card:**
-- Task detail modal/page opens
-- Shows:
-  - Title
-  - Full description
-  - Status
-  - Priority (with color indicator)
-  - Assigned to (user name + avatar)
-  - Created date
-  - Deadline date
-  - Countdown timer (if deadline approaching)
-  
-**Comments Section:**
-- List of all comments
-- Each comment shows:
-  - User name + avatar
-  - Comment text
-  - Timestamp
-- **Add Comment** box at bottom
-  
-**Action Buttons:**
-- Edit Task
-- Delete Task
-- Mark as Complete
-- Close
-
----
-
-### **✏️ PHASE 5: Editing a Task**
-
-**From Task Detail, User Clicks "Edit":**
-- Edit form appears (pre-filled with current data)
-- User can change:
-  - Title
-  - Description
-  - Priority
-  - Status
-  - Assigned user
-  - Deadline
-- Clicks "Update"
-- Task updated in real-time
-- If status changed → moves to different column
-- Success message: "Task updated successfully!"
-
----
-
-### **🗑️ PHASE 6: Deleting a Task**
-
-**User Clicks "Delete" Button:**
-- Confirmation dialog appears:
-  - "Are you sure you want to delete this task?"
-  - "Delete" button (red)
-  - "Cancel" button
-- If confirms:
-  - Task removed from board
-  - Success message: "Task deleted successfully!"
-- If cancels:
-  - Nothing happens
-
----
-
-### **💬 PHASE 7: Adding Comments**
-
-**From Task Detail Page:**
-- User scrolls to comments section
-- Types comment in text box
-- Clicks "Add Comment"
-- Comment appears instantly
-- Shows:
-  - Current user's name + avatar
-  - Comment text
-  - "Just now" timestamp
-- Other users can see this comment (real-time collaboration)
-
----
-
-### **🔍 PHASE 8: Search & Filter**
-
-**Scenario A: Searching**
-- User types in search box: "API"
-- Board filters in real-time
-- Shows only tasks with "API" in title
-- Other tasks hide
-
-**Scenario B: Filtering by Priority**
-- User selects "High Priority" from filter
-- Board shows only high-priority tasks
-- All columns update
-
-**Scenario C: Filtering by Status**
-- User selects "In Progress" from filter
-- Only "In Progress" column visible
-- Other columns hide
-
-**Scenario D: Combining Filters**
-- User selects:
-  - Priority: High
-  - Assigned to: John Doe
-- Shows only high-priority tasks assigned to John
-
----
-
-### **✅ PHASE 9: Completing Tasks**
-
-**User Marks Task as Complete:**
-- Either:
-  - Drag task to "Completed" column (bonus feature)
-  - Click "Mark Complete" button
-  - Change status to "Completed" in edit form
-- Task moves to "Completed" column
-- Completion percentage updates
-- Visual celebration (maybe confetti animation - bonus!)
-
----
-
-### **🎨 PHASE 10: Theme Toggle**
-
-**User Clicks Theme Toggle:**
-- Switches between:
-  - Light mode (white background)
-  - Dark mode (dark background)
-- Entire app changes color scheme
-- Preference saved (persists after refresh)
-
----
-
-### **👤 PHASE 11: User Profile**
-
-**User Clicks on Profile:**
-- Dropdown or page shows:
-  - User info (name, email, avatar)
-  - "Edit Profile" option
-  - "Logout" button
-
-**Edit Profile:**
-- Change name
-- Change email
-- Upload new avatar
-- Change password
-
----
-
-### **🚪 PHASE 12: Logout**
-
-**User Clicks Logout:**
-- Session ends
-- Redirected to Login page
-- Cannot access Dashboard without login
-
----
-
-### **🔒 PHASE 13: Protected Routes**
-
-**If User Tries to Access Dashboard Without Login:**
-- Automatically redirected to Login page
-- Message: "Please login to continue"
-
----
-
-## 📊 Complete User Journey Map
-
-```
-Landing Page
-    ↓
-[New User]        [Existing User]
-    ↓                  ↓
- Register           Login
-    ↓                  ↓
-    └─────→ Dashboard ←┘
-            ↓
-    ┌───────┴───────┬───────────┬──────────┐
-    ↓               ↓           ↓          ↓
-View Tasks    Create Task   Edit Task   Delete Task
-    ↓               ↓           ↓          ↓
-Task Details → Add Comments → Update → Complete
-    ↓
-Search/Filter
-    ↓
-View Statistics
-    ↓
-Toggle Theme
-    ↓
-Logout
-```
-
----
-
-## 🎯 Key User Actions
-
-1. ✅ **Register/Login** - Access the app
-2. ✅ **View Dashboard** - See all tasks
-3. ✅ **Create Task** - Add new tasks
-4. ✅ **View Task Details** - See full task info
-5. ✅ **Edit Task** - Update task info
-6. ✅ **Delete Task** - Remove tasks
-7. ✅ **Add Comments** - Collaborate on tasks
-8. ✅ **Search Tasks** - Find specific tasks
-9. ✅ **Filter Tasks** - View by criteria
-10. ✅ **Complete Tasks** - Mark as done
-11. ✅ **Toggle Theme** - Dark/Light mode
-12. ✅ **View Profile** - Manage account
-13. ✅ **Logout** - End session
-
----
-
-## 🛠️ Tech Stack
-
-- **React 19** - UI library
-- **React Router v7** - Navigation
-- **Bootstrap 5** - Styling
-- **React Icons** - Icons
-- **Vite** - Build tool
-- **JSON Server** - Mock API
-
----
-
-## 📁 Project Structure
-
-```
-TaskManagementApp/
-├── src/
-│   ├── components/
-│   │   ├── Auth/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   └── ProtectedRoute.jsx
-│   │   ├── Dashboard/
-│   │   │   ├── TaskBoard.jsx
-│   │   │   ├── TaskColumn.jsx
-│   │   │   ├── TaskCard.jsx
-│   │   │   └── TaskStats.jsx
-│   │   ├── TaskDetails/
-│   │   │   ├── TaskDetailModal.jsx
-│   │   │   ├── CommentList.jsx
-│   │   │   └── CommentForm.jsx
-│   │   ├── Forms/
-│   │   │   ├── TaskForm.jsx
-│   │   │   └── SearchBar.jsx
-│   │   └── Common/
-│   │       ├── Navbar.jsx
-│   │       ├── ThemeToggle.jsx
-│   │       ├── LoadingSpinner.jsx
-│   │       └── ErrorBoundary.jsx
-│   ├── hooks/
-│   │   ├── useFetch.js
-│   │   ├── useLocalStorage.js
-│   │   ├── useDebounce.js
-│   │   └── useForm.js
-│   ├── context/
-│   │   ├── AuthContext.jsx
-│   │   └── ThemeContext.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Dashboard.jsx
-│   │   └── NotFound.jsx
-│   └── App.jsx
-├── server/
-│   └── db.json
-└── package.json
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. **Install dependencies:**
-```bash
-npm install
-```
-
-2. **Start JSON Server (in separate terminal):**
-```bash
-cd server
-json-server --watch db.json --port 3000
-```
-
-3. **Start development server:**
-```bash
-npm run dev
-```
-
-4. **Open in browser:**
-```
-http://localhost:5173
-```
-
----
-
-## 📚 React Concepts Covered
-
-### Hooks
-- ✅ useState - State management
-- ✅ useEffect - Side effects
-- ✅ useContext - Global state
-- ✅ useRef - DOM references
-- ✅ useMemo - Performance optimization
-- ✅ useCallback - Function memoization
-
-### Advanced Concepts
-- ✅ Custom Hooks
-- ✅ Context API
-- ✅ Protected Routes
-- ✅ Error Boundaries
-- ✅ Lazy Loading
-- ✅ Code Splitting
-
-### React Router
-- ✅ Routing & Navigation
-- ✅ Nested Routes
-- ✅ URL Parameters
-- ✅ Protected Routes
-
----
-
-## 🎨 Features
-
-- 🔐 Authentication (Login/Register)
-- 📊 Task Dashboard with 3 columns
-- ✏️ CRUD Operations (Create, Read, Update, Delete)
-- 🔍 Search & Advanced Filtering
-- 💬 Task Comments System
-- 📈 Task Statistics Dashboard
-- 🌓 Dark/Light Theme Toggle
-- ⚡ Real-time Updates
-- 🎯 Priority Color Coding
-- ⏰ Deadline Countdown
-- 👤 User Profile Management
-
----
-
-## 📝 Development Plan
-
-### Day 1: Setup
-- ✅ Folder structure
-- ✅ Dependencies installed
-- ⏳ JSON Server setup
-- ⏳ Basic routing
-
-### Day 2-3: Core Features
-- Task list display
-- Add task form
-- Edit/Delete functionality
-
-### Day 4: State Management
-- AuthContext
-- ThemeContext
-- Protected routes
-
-### Day 5-6: Advanced Features
-- Search & filters
-- Custom hooks
-- Comments system
-
-### Day 7: Optimization
-- Lazy loading
-- Memoization
-- Error boundaries
-
-### Day 8: Polish
-- Loading states
-- Error handling
-- Responsive design
-
----
-
-## 🤝 Contributing
-
-This is a learning project. Feel free to:
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is for educational purposes.
 
 ---
 
@@ -496,313 +5,314 @@ This project is for educational purposes.
 
 📚 CORE FUNDAMENTALS (Must Know)
 1. Components
-✅ Functional Components
-✅ Class Components (legacy, but understand for maintenance)
-✅ Component Composition
-✅ HOCs (Higher-Order Components)
-✅ Render Props Pattern
-✅ Compound Components
-✅ Controlled vs Uncontrolled Components
+✅ Functional Components (UserProfileControlled, TabsCompound - ALL components)
+❌ Class Components (legacy, but understand for maintenance)
+✅ Component Composition (Tabs structure, UserCard in UserProfile)
+✅ HOCs (Higher-Order Components) (withLoading, withLogger, withHeighLight, withConfirmation)
+✅ Render Props Pattern (MultipleFilteredList with renderHeader, renderItem, renderEmpty)
+✅ Compound Components (TabsCompound - Tabs/TabList/Tab/TabPanels/TabPanel)
+✅ Controlled vs Uncontrolled Components (Controlled form inputs in UserProfile)
 2. JSX & Rendering
-✅ JSX Syntax & Transpilation (Babel)
-✅ Virtual DOM & Reconciliation
-✅ React.createElement() under the hood
-✅ Conditional Rendering (&&, ternary, early return)
-✅ Lists & Keys (why keys matter)
-✅ Fragments (<></>, <React.Fragment>)
+✅ JSX Syntax & Transpilation (Babel) (All component returns)
+❌ Virtual DOM & Reconciliation (Theoretical - not directly implemented)
+❌ React.createElement() under the hood (Theoretical knowledge)
+✅ Conditional Rendering (&&, ternary, early return) (TabPanel return null, filter logic)
+✅ Lists & Keys (why keys matter) (user.map with key={item.id})
+✅ Fragments (<></>, <React.Fragment>) (Used in Tab component and UserProfile)
 3. State Management
-✅ useState
-✅ useReducer
-✅ State lifting
-✅ Immutable state updates
-✅ Batching updates (automatic in React 18)
-✅ Concurrent features (React 18+)
+✅ useState (activeIndex in Tabs, user/filterType/formData in UserProfile, custom hooks)
+✅ useReducer (TodoList with reducer function, actions, dispatch)
+✅ State lifting (Tabs lifts state to parent, shared via Context)
+✅ Immutable state updates (spread operator, map, filter in reducer cases)
+❌ Batching updates (automatic in React 18)
+❌ Concurrent features (React 18+)
 4. Props
-✅ Props drilling
-✅ Children prop
-✅ Render props
-✅ Prop types validation (PropTypes, TypeScript)
-✅ Default props
-✅ Spreading props
+✅ Props drilling (Avoided using Context API in Tabs)
+✅ Children prop (ALL components use {children})
+✅ Render props (MultipleFilteredList pattern)
+❌ Prop types validation (PropTypes, TypeScript)
+❌ Default props
+✅ Spreading props (withLoading uses {...props})
 🎣 HOOKS MASTERY (Essential)
 Built-in Hooks:
-✅ useState - State management
-✅ useEffect - Side effects, cleanup, dependencies
-✅ useContext - Context API consumption
-✅ useReducer - Complex state logic
-✅ useCallback - Memoize functions
-✅ useMemo - Memoize values
-✅ useRef - DOM refs, persisting values
-✅ useLayoutEffect - Synchronous effects
-✅ useImperativeHandle - Customize ref exposure
-✅ useDebugValue - Custom hook debugging
+✅ useState - State management (Tabs, UserProfile, useFetch, useDebounce, useLocalStorage, TodoList)
+✅ useEffect - Side effects, cleanup, dependencies (useFetch, useDebounce, AutoFocus, RenderCounter)
+✅ useContext - Context API consumption (useTabsContext hook in Tabs)
+✅ useReducer - Complex state logic (UseReducerPractice with ADD/TOGGLE/DELETE actions)
+✅ useCallback - Memoize functions (UseCallbackPractice with handleCheck and deleteHandle)
+✅ useMemo - Memoize values (UseMemoCallbackPractice with subTotal, tax, discount, total)
+✅ useRef - DOM refs, persisting values (UseRefPractice with AutoFocus, RenderCounter)
+❌ useLayoutEffect - Synchronous effects
+❌ useImperativeHandle - Customize ref exposure
+❌ useDebugValue - Custom hook debugging
 React 18+ Hooks:
-✅ useId - Unique IDs for accessibility
-✅ useTransition - Non-blocking updates
-✅ useDeferredValue - Defer expensive renders
-✅ useSyncExternalStore - Subscribe to external stores
-✅ useInsertionEffect - CSS-in-JS libraries
+❌ useId - Unique IDs for accessibility
+❌ useTransition - Non-blocking updates
+❌ useDeferredValue - Defer expensive renders
+❌ useSyncExternalStore - Subscribe to external stores
+❌ useInsertionEffect - CSS-in-JS libraries
 Custom Hooks:
-✅ Building reusable hooks
-✅ Hook composition
-✅ Hook naming conventions (use prefix)
-✅ Common patterns (useDebounce, useThrottle, useFetch, useLocalStorage)
+✅ Building reusable hooks (useTabsContext, useFetch, useDebounce, useLocalStorage)
+✅ Hook composition (useContext inside custom hook, async/await in hooks)
+✅ Hook naming conventions (use prefix) (useTabsContext, useFetch, useDebounce, useLocalStorage)
+✅ Common patterns (useDebounce, useFetch, useLocalStorage) - MASTERED!
 🚀 PERFORMANCE OPTIMIZATION (Senior Must-Know)
 Optimization Techniques:
-✅ React.memo - Prevent unnecessary re-renders
-✅ useMemo - Memoize expensive calculations
-✅ useCallback - Prevent function recreation
-✅ Code splitting - React.lazy(), Suspense
-✅ Dynamic imports - Route-based splitting
-✅ Virtualization - react-window, react-virtualized
-✅ Debouncing & Throttling - Input optimization
-✅ Web Workers - Offload heavy computations
+✅ React.memo - Prevent unnecessary re-renders (UseCallbackPractice - ChildComponent memoized)
+✅ useMemo - Memoize expensive calculations (UseMemoCallbackPractice - cart totals, tax, discount)
+✅ useCallback - Prevent function recreation (UseCallbackPractice - handleCheck, deleteHandle)
+❌ Code splitting - React.lazy(), Suspense
+❌ Dynamic imports - Route-based splitting
+❌ Virtualization - react-window, react-virtualized
+✅ Debouncing & Throttling - Input optimization (useDebounce hook implemented)
+❌ Web Workers - Offload heavy computations
 Profiling & Debugging:
-✅ React DevTools Profiler
-✅ Chrome Performance tab
-✅ Why Did You Render
-✅ Identifying re-render causes
-✅ Bundle size analysis (webpack-bundle-analyzer)
+❌ React DevTools Profiler
+❌ Chrome Performance tab
+❌ Why Did You Render
+❌ Identifying re-render causes
+❌ Bundle size analysis (webpack-bundle-analyzer)
 🏗️ ADVANCED PATTERNS (Expert Level)
 Design Patterns:
-✅ Container/Presentational - Separation of concerns
-✅ Compound Components - Implicit state sharing
-✅ Render Props - Flexible rendering
-✅ HOCs - Cross-cutting concerns
-✅ Provider Pattern - Context API
-✅ Hooks Pattern - Modern state logic
-✅ State Reducer Pattern - Inversion of control
-✅ Control Props Pattern - Parent control
+✅ Container/Presentational - Separation of concerns (UserProfile manages logic, UserCard presents)
+✅ Compound Components - Implicit state sharing (Tabs/TabList/Tab/TabPanels/TabPanel via Context)
+✅ Render Props - Flexible rendering (MultipleFilteredList with renderHeader/renderItem/renderEmpty)
+✅ HOCs - Cross-cutting concerns (withLoading, withLogger, withHeighLight, withConfirmation)
+✅ Provider Pattern - Context API (TabsContext.Provider wrapping children)
+✅ Hooks Pattern - Modern state logic (useTabsContext custom hook)
+❌ State Reducer Pattern - Inversion of control
+❌ Control Props Pattern - Parent control
 Architecture:
-✅ Feature-based folder structure
-✅ Atomic Design (atoms, molecules, organisms)
-✅ Clean Architecture principles
-✅ Separation of concerns
-✅ Dependency injection
+✅ Feature-based folder structure (components/TaskDetails/)
+❌ Atomic Design (atoms, molecules, organisms)
+✅ Clean Architecture principles (Separation of logic and presentation)
+✅ Separation of concerns (Context for state, HOCs for cross-cutting)
+✅ Dependency injection (Functions passed as props to HOCs)
 🌐 ROUTING (Essential)
 React Router (v6+):
-✅ BrowserRouter, Routes, Route
-✅ Nested routes
-✅ Dynamic routes (:id)
-✅ useNavigate, useParams, useLocation, useSearchParams
-✅ Protected routes
-✅ Lazy loading routes
-✅ Route transitions
-✅ Programmatic navigation
-✅ Route guards
+✅ BrowserRouter, Routes, Route (App.jsx with 11 routes, main.jsx with BrowserRouter wrapper)
+❌ Nested routes
+❌ Dynamic routes (:id)
+❌ useNavigate, useParams, useLocation, useSearchParams
+❌ Protected routes
+❌ Lazy loading routes
+❌ Route transitions
+❌ Programmatic navigation
+❌ Route guards
 🗂️ STATE MANAGEMENT (Senior Must-Know)
 Context API:
-✅ createContext, Provider, Consumer
-✅ useContext hook
-✅ Multiple contexts
-✅ Context performance issues
+✅ createContext, Provider, Consumer (TabsContext created and provided in Tabs component)
+✅ useContext hook (useTabsContext consumes context)
+❌ Multiple contexts
+❌ Context performance issues
 Redux (Still relevant):
-✅ Redux Toolkit (modern approach)
-✅ Store, Reducers, Actions
-✅ useSelector, useDispatch
-✅ Redux Thunk / Redux Saga
-✅ Redux DevTools
-✅ Immutable updates (Immer)
+✅ Redux Toolkit (modern approach) (store.js, counterSlice.js, todosSlice.js)
+✅ Store, Reducers, Actions (configureStore with 2 slices, createSlice, actions exported)
+✅ useSelector, useDispatch (ReduxCounterPage, ReduxTodosPage)
+❌ Redux Thunk / Redux Saga
+❌ Redux DevTools
+✅ Immutable updates (Immer) (Immer built-in with Redux Toolkit in slices)
 Modern Alternatives:
-✅ Zustand - Lightweight state
-✅ Jotai - Atomic state
-✅ Recoil - Facebook's solution
-✅ MobX - Observable state
-✅ TanStack Query (React Query) - Server state
-✅ SWR - Data fetching
+❌ Zustand - Lightweight state
+❌ Jotai - Atomic state
+❌ Recoil - Facebook's solution
+❌ MobX - Observable state
+❌ TanStack Query (React Query) - Server state
+❌ SWR - Data fetching
 🌐 DATA FETCHING (Modern Approach)
 Patterns:
-✅ fetch() / axios
-✅ useEffect for fetching
-✅ TanStack Query (React Query) - Industry standard
-✅ SWR
-✅ Suspense for Data Fetching
-✅ Error boundaries
-✅ Loading states
-✅ Caching strategies
-✅ Optimistic updates
-✅ Polling & Real-time updates
+✅ fetch() / axios (useFetch hook with async/await)
+✅ useEffect for fetching (Implemented in useFetch hook)
+❌ TanStack Query (React Query) - Industry standard
+❌ SWR
+❌ Suspense for Data Fetching
+❌ Error boundaries
+✅ Loading states (useFetch hook: loading, error, data states)
+❌ Caching strategies
+❌ Optimistic updates
+❌ Polling & Real-time updates
 📝 FORMS (Essential)
 Form Management:
-✅ Controlled components
-✅ Uncontrolled components (useRef)
-✅ React Hook Form - Modern, performant
-✅ Formik - Legacy but still used
-✅ Validation (Yup, Zod)
-✅ Form state management
-✅ Field arrays
-✅ Form submission
-✅ Error handling
+✅ Controlled components (UserProfile form with value + onChange)
+❌ Uncontrolled components (useRef)
+❌ React Hook Form - Modern, performant
+❌ Formik - Legacy but still used
+❌ Validation (Yup, Zod)
+✅ Form state management (formData state in UserProfile)
+❌ Field arrays
+✅ Form submission (handleSubmit with e.preventDefault())
+✅ Error handling (Basic alert validation)
 🎨 STYLING (Must Know Multiple Approaches)
 CSS Approaches:
-✅ CSS Modules - Scoped styles
-✅ Styled-components - CSS-in-JS
-✅ Emotion - CSS-in-JS
-✅ Tailwind CSS - Utility-first (trending)
-✅ SCSS/SASS - Preprocessors
-✅ CSS-in-JS (pros/cons)
-✅ Vanilla Extract - Zero-runtime CSS
+❌ CSS Modules - Scoped styles
+❌ Styled-components - CSS-in-JS
+❌ Emotion - CSS-in-JS
+❌ Tailwind CSS - Utility-first (trending)
+❌ SCSS/SASS - Preprocessors
+✅ CSS-in-JS (pros/cons) (Inline styles in UseMemoCallbackPractice, UseCallbackPractice)
+❌ Vanilla Extract - Zero-runtime CSS
 UI Libraries:
-✅ Material-UI (MUI)
-✅ Ant Design
-✅ Chakra UI
-✅ Shadcn/ui (trending)
-✅ Radix UI (headless)
+✅ Bootstrap 5 - Utility classes (package.json, used throughout QuestionAndAnswer, ReduxTodosPage, UseReducerPractice)
+❌ Material-UI (MUI)
+❌ Ant Design
+❌ Chakra UI
+❌ Shadcn/ui (trending)
+❌ Radix UI (headless)
 🧪 TESTING (Senior Must-Know)
 Testing Tools:
-✅ Jest - Unit testing
-✅ React Testing Library - Component testing
-✅ Vitest - Modern Jest alternative
-✅ Cypress - E2E testing
-✅ Playwright - Modern E2E
-✅ MSW (Mock Service Worker) - API mocking
+❌ Jest - Unit testing
+❌ React Testing Library - Component testing
+❌ Vitest - Modern Jest alternative
+❌ Cypress - E2E testing
+❌ Playwright - Modern E2E
+❌ MSW (Mock Service Worker) - API mocking
 Testing Concepts:
-✅ Unit tests
-✅ Integration tests
-✅ E2E tests
-✅ Snapshot testing
-✅ Test coverage
-✅ TDD approach
-✅ Testing hooks
-✅ Testing async code
+❌ Unit tests
+❌ Integration tests
+❌ E2E tests
+❌ Snapshot testing
+❌ Test coverage
+❌ TDD approach
+❌ Testing hooks
+❌ Testing async code
 🔒 TYPESCRIPT (Modern Must-Have)
 TypeScript with React:
-✅ Component typing (FC, ReactNode, ReactElement)
-✅ Props interfaces/types
-✅ useState typing
-✅ useRef typing
-✅ Event types (ChangeEvent, FormEvent, MouseEvent)
-✅ Custom hook typing
-✅ Generic components
-✅ Utility types (Partial, Pick, Omit, Record)
-✅ forwardRef typing
+❌ Component typing (FC, ReactNode, ReactElement)
+❌ Props interfaces/types
+❌ useState typing
+❌ useRef typing
+❌ Event types (ChangeEvent, FormEvent, MouseEvent)
+❌ Custom hook typing
+❌ Generic components
+❌ Utility types (Partial, Pick, Omit, Record)
+❌ forwardRef typing
 ⚡ REACT 18+ FEATURES (Must Know)
 New in React 18:
-✅ Concurrent Rendering - Non-blocking updates
-✅ Automatic Batching - Better performance
-✅ useTransition - Mark updates as non-urgent
-✅ useDeferredValue - Defer expensive updates
-✅ Suspense - Data fetching & code splitting
-✅ Streaming SSR - Faster server rendering
-✅ Selective Hydration - Prioritize interactive parts
+❌ Concurrent Rendering - Non-blocking updates
+❌ Automatic Batching - Better performance
+❌ useTransition - Mark updates as non-urgent
+❌ useDeferredValue - Defer expensive updates
+❌ Suspense - Data fetching & code splitting
+❌ Streaming SSR - Faster server rendering
+❌ Selective Hydration - Prioritize interactive parts
 🏢 SERVER-SIDE RENDERING (SSR) (Senior Level)
 Frameworks:
-✅ Next.js - Full-stack React (Industry standard)
-App Router (React Server Components)
-Pages Router (traditional)
-Static Generation (SSG)
-Server-Side Rendering (SSR)
-Incremental Static Regeneration (ISR)
-API Routes
-Middleware
-Image optimization
-✅ Remix - Modern full-stack
-✅ Gatsby - Static sites
+❌ Next.js - Full-stack React (Industry standard)
+❌ App Router (React Server Components)
+❌ Pages Router (traditional)
+❌ Static Generation (SSG)
+❌ Server-Side Rendering (SSR)
+❌ Incremental Static Regeneration (ISR)
+❌ API Routes
+❌ Middleware
+❌ Image optimization
+❌ Remix - Modern full-stack
+❌ Gatsby - Static sites
 Concepts:
-✅ Hydration
-✅ SEO optimization
-✅ Meta tags management
-✅ Server Components vs Client Components
-✅ Streaming
+❌ Hydration
+❌ SEO optimization
+❌ Meta tags management
+❌ Server Components vs Client Components
+❌ Streaming
 🔐 SECURITY (Must Know)
 Security Practices:
-✅ XSS prevention
-✅ CSRF protection
-✅ Sanitizing user input
-✅ dangerouslySetInnerHTML (when/why to avoid)
-✅ JWT authentication
-✅ OAuth/OAuth2
-✅ Environment variables
-✅ HTTPS/SSL
-✅ Content Security Policy
+❌ XSS prevention
+❌ CSRF protection
+❌ Sanitizing user input
+❌ dangerouslySetInnerHTML (when/why to avoid)
+❌ JWT authentication
+❌ OAuth/OAuth2
+❌ Environment variables
+❌ HTTPS/SSL
+❌ Content Security Policy
 🛠️ BUILD TOOLS & ECOSYSTEM (Must Know)
 Build Tools:
-✅ Vite - Modern, fast (recommended)
-✅ Webpack - Traditional bundler
-✅ Create React App (deprecated, know alternatives)
-✅ Turbopack - Next.js bundler
-✅ esbuild - Fast bundler
+✅ Vite - Modern, fast (recommended) (Project uses Vite)
+❌ Webpack - Traditional bundler
+❌ Create React App (deprecated, know alternatives)
+❌ Turbopack - Next.js bundler
+❌ esbuild - Fast bundler
 Package Managers:
-✅ npm
-✅ yarn
-✅ pnpm (faster, space-efficient)
+✅ npm (Project uses npm)
+❌ yarn
+❌ pnpm (faster, space-efficient)
 Development Tools:
-✅ ESLint - Code linting
-✅ Prettier - Code formatting
-✅ Husky - Git hooks
-✅ TypeScript - Type safety
-✅ Babel - JavaScript compiler
+✅ ESLint - Code linting (Project has eslint.config.js)
+❌ Prettier - Code formatting
+❌ Husky - Git hooks
+❌ TypeScript - Type safety
+❌ Babel - JavaScript compiler
 🎯 REAL-WORLD SKILLS (Expert Level)
 Architecture Decisions:
-✅ When to use Context vs State Management library
-✅ Component library vs custom components
-✅ SSR vs CSR vs SSG tradeoffs
-✅ Monorepo vs multi-repo
-✅ Micro-frontends
+✅ When to use Context vs State Management library (Used Context in Tabs)
+✅ Component library vs custom components (Built custom components)
+❌ SSR vs CSR vs SSG tradeoffs
+❌ Monorepo vs multi-repo
+❌ Micro-frontends
 Performance:
-✅ Core Web Vitals (LCP, FID, CLS)
-✅ Lighthouse audits
-✅ Bundle size optimization
-✅ Tree shaking
-✅ Code splitting strategies
-✅ Image optimization
-✅ Font optimization
+❌ Core Web Vitals (LCP, FID, CLS)
+❌ Lighthouse audits
+❌ Bundle size optimization
+❌ Tree shaking
+❌ Code splitting strategies
+❌ Image optimization
+❌ Font optimization
 Accessibility (A11y):
-✅ ARIA attributes
-✅ Keyboard navigation
-✅ Screen reader support
-✅ Focus management
-✅ Semantic HTML
-✅ Color contrast
-✅ WCAG guidelines
+❌ ARIA attributes
+❌ Keyboard navigation
+❌ Screen reader support
+❌ Focus management
+✅ Semantic HTML (Used semantic tags like form, button, input)
+❌ Color contrast
+❌ WCAG guidelines
 Best Practices:
-✅ Component design principles
-✅ Error boundaries
-✅ Portals (Modals, Tooltips)
-✅ forwardRef
-✅ Refs and DOM manipulation
-✅ Event handling best practices
-✅ Naming conventions
-✅ File/folder structure
+✅ Component design principles (Separation of concerns, single responsibility)
+❌ Error boundaries
+❌ Portals (Modals, Tooltips)
+❌ forwardRef
+❌ Refs and DOM manipulation
+✅ Event handling best practices (onClick, onChange, onSubmit)
+✅ Naming conventions (handleSubmit, handleDelete, isActive, etc.)
+✅ File/folder structure (Organized by feature)
 🔄 DEPLOYMENT & CI/CD (Must Know)
 Deployment:
-✅ Vercel (easiest for Next.js)
-✅ Netlify
-✅ AWS (S3, CloudFront, Amplify)
-✅ Docker containerization
-✅ Kubernetes orchestration
+❌ Vercel (easiest for Next.js)
+❌ Netlify
+❌ AWS (S3, CloudFront, Amplify)
+❌ Docker containerization
+❌ Kubernetes orchestration
 CI/CD:
-✅ GitHub Actions
-✅ GitLab CI
-✅ Jenkins
-✅ CircleCI
+❌ GitHub Actions
+❌ GitLab CI
+❌ Jenkins
+❌ CircleCI
 📊 MONITORING & ANALYTICS (Production Skills)
 Tools:
-✅ Sentry - Error tracking
-✅ LogRocket - Session replay
-✅ Google Analytics
-✅ Mixpanel
-✅ New Relic / Datadog - APM
+❌ Sentry - Error tracking
+❌ LogRocket - Session replay
+❌ Google Analytics
+❌ Mixpanel
+❌ New Relic / Datadog - APM
 🎓 SOFT SKILLS & LEADERSHIP (10 Years Experience)
 Technical Leadership:
-✅ Code reviews
-✅ Architecture decisions
-✅ Mentoring junior developers
-✅ Technical documentation
-✅ System design
-✅ Performance audits
-✅ Migration strategies (Class → Functional, CRA → Vite)
-✅ Interviewing candidates
+❌ Code reviews
+❌ Architecture decisions
+❌ Mentoring junior developers
+❌ Technical documentation
+❌ System design
+❌ Performance audits
+❌ Migration strategies (Class → Functional, CRA → Vite)
+❌ Interviewing candidates
 🔥 CURRENT TRENDS (2024-2025)
-✅ React Server Components (Next.js App Router)
-✅ Server Actions (Next.js 14+)
-✅ Tailwind CSS - Utility-first styling
-✅ Shadcn/ui - Copy-paste components
-✅ TanStack Query - Server state management
-✅ Zod - Schema validation
-✅ tRPC - End-to-end type safety
-✅ Turbopack - Next-gen bundler
-✅ Bun - Fast runtime
+❌ React Server Components (Next.js App Router)
+❌ Server Actions (Next.js 14+)
+❌ Tailwind CSS - Utility-first styling
+❌ Shadcn/ui - Copy-paste components
+❌ TanStack Query - Server state management
+❌ Zod - Schema validation
+❌ tRPC - End-to-end type safety
+❌ Turbopack - Next-gen bundler
+❌ Bun - Fast runtime
 ✅ CHECKLIST FOR 10 YEARS EXPERIENCE:
 You should be able to:
 ✅ Build scalable React applications from scratch
@@ -815,3 +325,138 @@ You should be able to:
 ✅ Handle production issues and debugging
 ✅ Stay current with React ecosystem
 ✅ Make technology choices for projects
+
+---
+
+## 📊 CURRENT LEARNING PROGRESS SUMMARY
+
+### ✅ CONCEPTS MASTERED (From Practice Files):
+
+**🎯 CORE PATTERNS (5/5 Major Patterns)**
+1. ✅ **Compound Components** - TabsCompound.jsx
+2. ✅ **Higher-Order Components (HOCs)** - withLoading, withLogger, withHeighLight, withConfirmation
+3. ✅ **Render Props Pattern** - MultipleFilteredList
+4. ✅ **Component Composition** - Nested component structures
+5. ✅ **Container/Presentational** - Logic separation
+
+**🎣 HOOKS (7/10 Built-in Hooks + 4 Custom Hooks)**
+1. ✅ useState - State management, lazy initialization (All components)
+2. ✅ useEffect - Side effects, lifecycle, cleanup, dependencies (Custom hooks, AutoFocus)
+3. ✅ useContext - Context consumption (Tabs)
+4. ✅ **useReducer** - Complex state, reducer function, actions, dispatch (UseReducerPractice)
+5. ✅ **useRef** - DOM manipulation (.focus()), persistent values (UseRefPractice)
+6. ✅ **useMemo** - Memoize expensive calculations (UseMemoCallbackPractice - cart totals)
+7. ✅ **useCallback** - Prevent function recreation (UseCallbackPractice - event handlers)
+8. ✅ **Custom Hooks** - useTabsContext, useFetch, useDebounce, useLocalStorage
+
+**🏗️ ARCHITECTURE (8 Key Concepts)**
+1. ✅ Context API (createContext, Provider, useContext)
+2. ✅ State Lifting
+3. ✅ Immutable State Updates (spread, map, filter in reducer)
+4. ✅ Controlled Components
+5. ✅ Event Handling
+6. ✅ Conditional Rendering
+7. ✅ Reducer Pattern (state, action, switch statements)
+8. ✅ Action-based State Updates (dispatch with action objects)
+
+**📝 FORMS (3/9 Concepts)**
+1. ✅ Controlled Components
+2. ✅ Form State Management
+3. ✅ Form Submission
+
+**🎨 STYLING (2/7 Approaches)**
+1. ✅ Inline Styles (CSS-in-JS - UseMemoCallbackPractice, UseCallbackPractice)
+2. ✅ Bootstrap 5 - Utility classes (QuestionAndAnswer, ReduxTodosPage, UseReducerPractice)
+
+**🛠️ BUILD TOOLS (3 Tools)**
+1. ✅ Vite
+2. ✅ npm
+3. ✅ ESLint
+
+---
+
+### 📈 LEARNING STATISTICS:
+
+**Total Concepts in README:** ~150+  
+**Concepts Practiced:** 65+  
+**Completion Rate:** ~43%  
+
+**Category Breakdown:**
+- ✅ Core Fundamentals: 80% (16/20)
+- ✅ Hooks: 70% (7/10 built-in + 4 custom hooks)
+- ✅ Advanced Patterns: 70% (7/10)
+- ✅ State Management: 60% (Context API, Redux Toolkit, useReducer)
+- ✅ Performance: 60% (React.memo, useMemo, useCallback, Debouncing)
+- ✅ Data Fetching: 45% (fetch API, async/await, loading/error states)
+- ✅ Routing: 30% (Basic routes, no params/navigation hooks)
+- ✅ Styling: 30% (Bootstrap, Inline styles)
+- ❌ Testing: 0% (Not yet covered)
+- ❌ TypeScript: 0% (Not yet covered)
+- ❌ React 18+ Features: 0% (Not yet covered)
+
+---
+
+### 🎯 RECOMMENDED NEXT STEPS:
+
+**Priority 1 (Essential for Jobs):**
+1. ✅ useReducer - Complex state logic - COMPLETED!
+2. ✅ useRef - DOM manipulation - COMPLETED!
+3. ✅ useCallback & useMemo - Performance - COMPLETED!
+4. ❌ Error Boundaries
+5. ❌ TypeScript with React
+
+**Priority 2 (Interview Must-Know):**
+6. ❌ React.lazy() & Suspense
+7. ✅ Custom Hooks (useDebounce, useFetch, useLocalStorage) - COMPLETED!
+8. ✅ React Router (Basic routes) - COMPLETED!
+9. ✅ API Integration - COMPLETED!
+10. ❌ Testing (Jest + React Testing Library)
+
+**Priority 3 (Advanced):**
+11. ❌ React 18 Concurrent Features
+12. ✅ State Management (Redux Toolkit) - COMPLETED!
+13. ❌ Server-Side Rendering (Next.js)
+14. ✅ Performance Optimization (memo, useMemo, useCallback) - COMPLETED!
+
+---
+
+### 🌟 YOUR CURRENT LEVEL:
+
+**Based on completed concepts:**
+- ✅ **Junior React Developer** - Expert level (100%)
+- ✅ **Mid-Level React Developer** - Advanced (85%)
+- 🔄 **Senior React Developer** - Developing (60%)
+
+**Interview Readiness:**
+- Junior positions: ~100% ✅✅
+- Mid-Level positions: ~85% ✅
+- Senior positions: ~60% 🔄
+
+**Recent Progress:**
+- ✅ Custom Hooks (useFetch, useDebounce, useLocalStorage) - MASTERED!
+- ✅ Data Fetching with async/await - MASTERED!
+- ✅ Performance Optimization (Debouncing) - MASTERED!
+- ✅ localStorage Integration - MASTERED!
+- ✅ useRef (DOM manipulation + persistent values) - MASTERED!
+- ✅ useReducer (reducer pattern, actions, dispatch, switch statements) - MASTERED!
+- ✅ Advanced useEffect patterns (cleanup, dependencies) - MASTERED!
+- ✅ Immutable State Updates (spread, map, filter in reducer) - MASTERED!
+- ✅ CRUD Operations (Create, Read, Update, Delete in TodoList) - MASTERED!
+- ✅ Redux Toolkit (createSlice, configureStore, actions, reducers) - MASTERED!
+- ✅ useSelector & useDispatch - Redux integration - MASTERED!
+- ✅ useMemo - Memoize expensive calculations (cart totals) - MASTERED!
+- ✅ useCallback - Prevent function recreation - MASTERED!
+- ✅ React.memo - Component memoization - MASTERED!
+- ✅ React Router - Basic routing (Routes, Route, Link, BrowserRouter) - MASTERED!
+- ✅ Bootstrap 5 - UI framework integration - MASTERED!
+
+**Outstanding progress! 🚀**
+
+**NEW TOPICS MASTERED:**
+- ✅ Redux Toolkit - Store, slices, actions, reducers
+- ✅ useSelector & useDispatch - Redux hooks
+- ✅ useMemo - Performance optimization for expensive calculations
+- ✅ useCallback - Performance optimization for functions
+- ✅ React.memo - Component memoization
+- ✅ React Router - Client-side routing with multiple routes
+- ✅ Bootstrap 5 - Professional UI styling
