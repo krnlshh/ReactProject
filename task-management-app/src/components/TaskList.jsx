@@ -1,5 +1,14 @@
-
-const TaskList = ({ filterData, updateStatus, edit, remove, formatDate }) => {
+import React, { useCallback } from "react";
+const TaskList = React.memo(({ filterData, updateStatus, edit, remove, formatDate }) => {
+    const handleUpdateStatus = useCallback((id) => {
+        updateStatus(id);
+    }, [updateStatus]);
+    const handleEdit = useCallback((id) => {
+        edit(id);
+    }, [edit]);
+    const handleRemove = useCallback((id) => {
+        remove(id);
+    }, [remove]);
     return (
         <div className="space-y-4">
             {filterData.map((item) => (
@@ -20,19 +29,19 @@ const TaskList = ({ filterData, updateStatus, edit, remove, formatDate }) => {
                     <div className="flex gap-2 mt-2 md:mt-0">
                         <button
                             className="px-3 py-1 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition"
-                            onClick={() => updateStatus(item.id)}
+                            onClick={() => handleUpdateStatus(item.id)}
                         >
                             Status Change
                         </button>
                         <button
                             className="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500 transition"
-                            onClick={() => edit(item.id)}
+                            onClick={() => handleEdit(item.id)}
                         >
                             Edit
                         </button>
                         <button
                             className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
-                            onClick={() => remove(item.id)}
+                            onClick={() => handleRemove(item.id)}
                         >
                             Remove
                         </button>
@@ -41,6 +50,8 @@ const TaskList = ({ filterData, updateStatus, edit, remove, formatDate }) => {
             ))}
         </div>
     );
-};
+});
 
-export default React.memo(TaskList);
+export default TaskList;
+
+

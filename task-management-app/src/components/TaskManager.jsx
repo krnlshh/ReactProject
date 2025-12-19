@@ -87,31 +87,33 @@ const Task = () => {
         setFormdata({ title: '', description: '', category: '', priority: '', status: '' })
     }
 
-    const remove = useCallback((id)=>{
-        setTask(task.filter((item) => item.id !== id))
-    },[setTask])
-    const edit = (id) => {
-        const editExistingTask = task.find((item) => item.id === id)
+    const remove = useCallback((id) => {
+        setTask(task.filter((item) => item.id !== id));
+    }, [task]);
+
+    const edit = useCallback((id) => {
+        const editExistingTask = task.find((item) => item.id === id);
         if (editExistingTask) {
             setFormdata({
                 title: editExistingTask.title,
                 description: editExistingTask.description,
                 category: editExistingTask.category,
                 priority: editExistingTask.priority,
-                status: editExistingTask.status
-            })
-            setEditId(id)
+                status: editExistingTask.status,
+            });
+            setEditId(id);
         }
-    }
-    const updateStatus = (id) => {
+    }, [task]);
+
+    const updateStatus = useCallback((id) => {
         setTask(task.map((item) => {
             if (item.id === id) {
-                let nextstatus = item.status === 'Todo' ? 'In Progress' : item.status === 'In Progress' ? 'Completed' : 'Todo'
-                return { ...item, status: nextstatus }
-            } return item
-        })
-        )
-    }
+                let nextstatus = item.status === 'Todo' ? 'In Progress' : item.status === 'In Progress' ? 'Completed' : 'Todo';
+                return { ...item, status: nextstatus };
+            }
+            return item;
+        }));
+    }, [task]);
     const filterData = useMemo(() => {
     let filtered = [...task];
     if (filter.category) filtered = filtered.filter(item => item.category === filter.category);
